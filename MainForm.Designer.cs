@@ -29,6 +29,7 @@ namespace DBF_Editor
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьdbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,27 +40,19 @@ namespace DBF_Editor
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.buttonsPanel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.infoPanel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonsPanel2 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.infoPanel1 = new System.Windows.Forms.Panel();
+            this.currentSumAndRowsLabel1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.totalRowsLabel1 = new System.Windows.Forms.Label();
+            this.totalSumLabel1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nameTextBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonsPanel1 = new System.Windows.Forms.Panel();
+            this.moveButton1 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.infoPanel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,20 +62,28 @@ namespace DBF_Editor
             this.label13 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.buttonsPanel2 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.editButton1 = new System.Windows.Forms.Button();
+            this.cloneButton1 = new System.Windows.Forms.Button();
+            this.deleteButton1 = new System.Windows.Forms.Button();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
-            this.buttonsPanel1.SuspendLayout();
-            this.infoPanel1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.buttonsPanel2.SuspendLayout();
-            this.infoPanel2.SuspendLayout();
+            this.infoPanel1.SuspendLayout();
+            this.buttonsPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.infoPanel2.SuspendLayout();
+            this.buttonsPanel2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -175,106 +176,42 @@ namespace DBF_Editor
             this.mainSplitContainer.SplitterWidth = 10;
             this.mainSplitContainer.TabIndex = 1;
             // 
-            // buttonsPanel1
+            // dataGridView1
             // 
-            this.buttonsPanel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonsPanel1.Controls.Add(this.button4);
-            this.buttonsPanel1.Controls.Add(this.button3);
-            this.buttonsPanel1.Controls.Add(this.button2);
-            this.buttonsPanel1.Controls.Add(this.button1);
-            this.buttonsPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonsPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonsPanel1.Location = new System.Drawing.Point(0, 0);
-            this.buttonsPanel1.Name = "buttonsPanel1";
-            this.buttonsPanel1.Size = new System.Drawing.Size(488, 50);
-            this.buttonsPanel1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 40);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 186);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(488, 385);
+            this.dataGridView1.TabIndex = 2;
             // 
             // infoPanel1
             // 
-            this.infoPanel1.BackColor = System.Drawing.SystemColors.Info;
-            this.infoPanel1.Controls.Add(this.label7);
+            this.infoPanel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.infoPanel1.Controls.Add(this.currentSumAndRowsLabel1);
             this.infoPanel1.Controls.Add(this.label6);
-            this.infoPanel1.Controls.Add(this.label5);
-            this.infoPanel1.Controls.Add(this.label4);
+            this.infoPanel1.Controls.Add(this.totalRowsLabel1);
+            this.infoPanel1.Controls.Add(this.totalSumLabel1);
             this.infoPanel1.Controls.Add(this.label3);
             this.infoPanel1.Controls.Add(this.label2);
-            this.infoPanel1.Controls.Add(this.textBox1);
+            this.infoPanel1.Controls.Add(this.nameTextBox1);
             this.infoPanel1.Controls.Add(this.label1);
             this.infoPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.infoPanel1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.infoPanel1.Location = new System.Drawing.Point(0, 50);
+            this.infoPanel1.Location = new System.Drawing.Point(0, 79);
             this.infoPanel1.Name = "infoPanel1";
-            this.infoPanel1.Size = new System.Drawing.Size(488, 113);
+            this.infoPanel1.Size = new System.Drawing.Size(488, 107);
             this.infoPanel1.TabIndex = 1;
             // 
-            // label1
+            // currentSumAndRowsLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(4, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Название:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(123, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(139, 30);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "123";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(4, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 23);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Сумма:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(4, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 23);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Строк:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(119, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 23);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "157684,04";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(119, 58);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 23);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "506";
+            this.currentSumAndRowsLabel1.AutoSize = true;
+            this.currentSumAndRowsLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.currentSumAndRowsLabel1.Location = new System.Drawing.Point(119, 78);
+            this.currentSumAndRowsLabel1.Name = "currentSumAndRowsLabel1";
+            this.currentSumAndRowsLabel1.Size = new System.Drawing.Size(86, 23);
+            this.currentSumAndRowsLabel1.TabIndex = 7;
+            this.currentSumAndRowsLabel1.Text = "45684 (6)";
             // 
             // label6
             // 
@@ -286,126 +223,100 @@ namespace DBF_Editor
             this.label6.TabIndex = 6;
             this.label6.Text = "ВЫДЕЛЕНО:";
             // 
-            // label7
+            // totalRowsLabel1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(119, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 23);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "45684 (6)";
+            this.totalRowsLabel1.AutoSize = true;
+            this.totalRowsLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.totalRowsLabel1.Location = new System.Drawing.Point(119, 58);
+            this.totalRowsLabel1.Name = "totalRowsLabel1";
+            this.totalRowsLabel1.Size = new System.Drawing.Size(40, 23);
+            this.totalRowsLabel1.TabIndex = 5;
+            this.totalRowsLabel1.Text = "506";
             // 
-            // button2
+            // totalSumLabel1
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Window;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(49, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 40);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "0";
-            this.button2.UseVisualStyleBackColor = false;
+            this.totalSumLabel1.AutoSize = true;
+            this.totalSumLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.totalSumLabel1.Location = new System.Drawing.Point(119, 38);
+            this.totalSumLabel1.Name = "totalSumLabel1";
+            this.totalSumLabel1.Size = new System.Drawing.Size(95, 23);
+            this.totalSumLabel1.TabIndex = 4;
+            this.totalSumLabel1.Text = "157684,04";
             // 
-            // button3
+            // label3
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(95, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(40, 40);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "0";
-            this.button3.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(4, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 23);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Строк:";
             // 
-            // button4
+            // label2
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(141, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(40, 40);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "0";
-            this.button4.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(4, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 23);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Сумма:";
             // 
-            // statusStrip1
+            // nameTextBox1
             // 
-            this.statusStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 595);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(969, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
+            this.nameTextBox1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameTextBox1.Location = new System.Drawing.Point(123, 6);
+            this.nameTextBox1.Name = "nameTextBox1";
+            this.nameTextBox1.Size = new System.Drawing.Size(139, 30);
+            this.nameTextBox1.TabIndex = 1;
+            this.nameTextBox1.Text = "123";
             // 
-            // dataGridView1
+            // label1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 163);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(488, 408);
-            this.dataGridView1.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(4, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Название:";
             // 
-            // buttonsPanel2
+            // buttonsPanel1
             // 
-            this.buttonsPanel2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonsPanel2.Controls.Add(this.button5);
-            this.buttonsPanel2.Controls.Add(this.button6);
-            this.buttonsPanel2.Controls.Add(this.button7);
-            this.buttonsPanel2.Controls.Add(this.button8);
-            this.buttonsPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonsPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonsPanel2.Location = new System.Drawing.Point(0, 0);
-            this.buttonsPanel2.Name = "buttonsPanel2";
-            this.buttonsPanel2.Size = new System.Drawing.Size(471, 50);
-            this.buttonsPanel2.TabIndex = 1;
+            this.buttonsPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonsPanel1.Controls.Add(this.deleteButton1);
+            this.buttonsPanel1.Controls.Add(this.cloneButton1);
+            this.buttonsPanel1.Controls.Add(this.editButton1);
+            this.buttonsPanel1.Controls.Add(this.moveButton1);
+            this.buttonsPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonsPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonsPanel1.Location = new System.Drawing.Point(0, 0);
+            this.buttonsPanel1.Name = "buttonsPanel1";
+            this.buttonsPanel1.Size = new System.Drawing.Size(488, 79);
+            this.buttonsPanel1.TabIndex = 0;
             // 
-            // button5
+            // moveButton1
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(141, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(40, 40);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "0";
-            this.button5.UseVisualStyleBackColor = false;
+            this.moveButton1.AutoSize = true;
+            this.moveButton1.BackColor = System.Drawing.Color.Transparent;
+            this.moveButton1.FlatAppearance.BorderSize = 0;
+            this.moveButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moveButton1.Image = global::DBF_Editor.Properties.Resources.moveToRight;
+            this.moveButton1.Location = new System.Drawing.Point(3, 4);
+            this.moveButton1.Name = "moveButton1";
+            this.moveButton1.Size = new System.Drawing.Size(72, 72);
+            this.moveButton1.TabIndex = 1;
+            this.moveButton1.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // dataGridView2
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Window;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(95, 4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(40, 40);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "0";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.SystemColors.Window;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(49, 4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(40, 40);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "0";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.SystemColors.Window;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(3, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(40, 40);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "0";
-            this.button8.UseVisualStyleBackColor = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 163);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(471, 408);
+            this.dataGridView2.TabIndex = 3;
             // 
             // infoPanel2
             // 
@@ -504,20 +415,119 @@ namespace DBF_Editor
             this.label14.TabIndex = 0;
             this.label14.Text = "Название:";
             // 
-            // dataGridView2
+            // buttonsPanel2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 163);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(471, 408);
-            this.dataGridView2.TabIndex = 3;
+            this.buttonsPanel2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonsPanel2.Controls.Add(this.button5);
+            this.buttonsPanel2.Controls.Add(this.button6);
+            this.buttonsPanel2.Controls.Add(this.button7);
+            this.buttonsPanel2.Controls.Add(this.button8);
+            this.buttonsPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonsPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonsPanel2.Location = new System.Drawing.Point(0, 0);
+            this.buttonsPanel2.Name = "buttonsPanel2";
+            this.buttonsPanel2.Size = new System.Drawing.Size(471, 50);
+            this.buttonsPanel2.TabIndex = 1;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.Window;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(141, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(40, 40);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "0";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.Window;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(95, 4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(40, 40);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "0";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.SystemColors.Window;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(49, 4);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(40, 40);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "0";
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.SystemColors.Window;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(3, 4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(40, 40);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "0";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 595);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(969, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(126, 17);
             this.toolStripStatusLabel1.Text = "Был открыт файл \"...\"";
+            // 
+            // editButton1
+            // 
+            this.editButton1.AutoSize = true;
+            this.editButton1.BackColor = System.Drawing.Color.Transparent;
+            this.editButton1.FlatAppearance.BorderSize = 0;
+            this.editButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editButton1.Image = global::DBF_Editor.Properties.Resources.edit;
+            this.editButton1.Location = new System.Drawing.Point(81, 4);
+            this.editButton1.Name = "editButton1";
+            this.editButton1.Size = new System.Drawing.Size(72, 72);
+            this.editButton1.TabIndex = 2;
+            this.editButton1.UseVisualStyleBackColor = false;
+            // 
+            // cloneButton1
+            // 
+            this.cloneButton1.AutoSize = true;
+            this.cloneButton1.BackColor = System.Drawing.Color.Transparent;
+            this.cloneButton1.FlatAppearance.BorderSize = 0;
+            this.cloneButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cloneButton1.Image = global::DBF_Editor.Properties.Resources.clone;
+            this.cloneButton1.Location = new System.Drawing.Point(159, 4);
+            this.cloneButton1.Name = "cloneButton1";
+            this.cloneButton1.Size = new System.Drawing.Size(72, 72);
+            this.cloneButton1.TabIndex = 3;
+            this.cloneButton1.UseVisualStyleBackColor = false;
+            // 
+            // deleteButton1
+            // 
+            this.deleteButton1.AutoSize = true;
+            this.deleteButton1.BackColor = System.Drawing.Color.Transparent;
+            this.deleteButton1.FlatAppearance.BorderSize = 0;
+            this.deleteButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton1.Image = global::DBF_Editor.Properties.Resources.delete;
+            this.deleteButton1.Location = new System.Drawing.Point(237, 4);
+            this.deleteButton1.Name = "deleteButton1";
+            this.deleteButton1.Size = new System.Drawing.Size(72, 72);
+            this.deleteButton1.TabIndex = 4;
+            this.deleteButton1.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -527,6 +537,7 @@ namespace DBF_Editor
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.mainMenuStrip);
             this.Controls.Add(this.statusStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -537,16 +548,17 @@ namespace DBF_Editor
             this.mainSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
-            this.buttonsPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.infoPanel1.ResumeLayout(false);
             this.infoPanel1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.buttonsPanel2.ResumeLayout(false);
+            this.buttonsPanel1.ResumeLayout(false);
+            this.buttonsPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.infoPanel2.ResumeLayout(false);
             this.infoPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.buttonsPanel2.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,19 +577,16 @@ namespace DBF_Editor
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.SplitContainer mainSplitContainer;
         private System.Windows.Forms.Panel buttonsPanel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button moveButton1;
         private System.Windows.Forms.Panel infoPanel1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label currentSumAndRowsLabel1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label totalRowsLabel1;
+        private System.Windows.Forms.Label totalSumLabel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nameTextBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -596,6 +605,9 @@ namespace DBF_Editor
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button deleteButton1;
+        private System.Windows.Forms.Button cloneButton1;
+        private System.Windows.Forms.Button editButton1;
     }
 }
 
