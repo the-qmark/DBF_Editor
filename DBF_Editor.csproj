@@ -102,6 +102,11 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="iconDBF.ico" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\saveCSV.png" />
+    <None Include="Resources\saveDBF.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\about.png" />
     <Content Include="Без-названия.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
