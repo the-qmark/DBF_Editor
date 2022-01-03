@@ -8,3 +8,13 @@ E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.csproj.GenerateResource
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.csproj.CoreCompileInputs.cache
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.exe
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.pdb
+C:\YandexDisk\СОБЕС\DBF_Editor\bin\Debug\DBF_Editor.exe.config
+C:\YandexDisk\СОБЕС\DBF_Editor\bin\Debug\DBF_Editor.exe
+C:\YandexDisk\СОБЕС\DBF_Editor\bin\Debug\DBF_Editor.pdb
+C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.csproj.AssemblyReference.cache
+C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.MainForm.resources
+C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.Properties.Resources.resources
+C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.csproj.GenerateResource.cache
+C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.csproj.CoreCompileInputs.cache
+C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.exe
+C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.pdb
