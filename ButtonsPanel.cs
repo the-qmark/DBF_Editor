@@ -9,12 +9,12 @@ namespace DBF_Editor
 {
     class ButtonsPanel
     {
-        public Button MoveBtn;
-        public Button EditBtn;
-        public Button CloneBtn;
-        public Button DeleteBtn;
+        public ToolStripButton MoveBtn;
+        public ToolStripButton EditBtn;
+        public ToolStripButton CloneBtn;
+        public ToolStripButton DeleteBtn;
         
-        public ButtonsPanel(Button moveBtn, Button editBtn, Button cloneBtn, Button deleteBtn)
+        public ButtonsPanel(ToolStripButton moveBtn, ToolStripButton editBtn, ToolStripButton cloneBtn, ToolStripButton deleteBtn)
         {
             MoveBtn = moveBtn;
             EditBtn = editBtn;

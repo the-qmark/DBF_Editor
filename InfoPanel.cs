@@ -11,18 +11,18 @@ namespace DBF_Editor
     class InfoPanel
     {
         public TextBox NameTextBox;
-        public Label TotalSumLabel;
-        public Label TotalRowsLabel;
-        public Label SelectedLabel;
+        private Label _totalSumLabel;
+        private Label _totalRowsLabel;
+        private Label _selectedLabel;
 
         private Table _table = new Table();
         
         public InfoPanel(TextBox nameTextBox, Label totalSumLabel, Label totalRowsLabel, Label selectedLabel, Table table)
         {
             NameTextBox = nameTextBox;
-            TotalSumLabel = totalSumLabel;
-            TotalRowsLabel = totalRowsLabel;
-            SelectedLabel = selectedLabel;
+            _totalSumLabel = totalSumLabel;
+            _totalRowsLabel = totalRowsLabel;
+            _selectedLabel = selectedLabel;
             _table = table;
 
             _table.TableChanged += OnTableChanged;
@@ -38,13 +38,13 @@ namespace DBF_Editor
 
         private void OnTableChanged()
         {
-            TotalSumLabel.Text = _table.TotalSum.ToString();
-            TotalRowsLabel.Text = _table.RowsCount.ToString();
+            _totalSumLabel.Text = _table.TotalSum.ToString();
+            _totalRowsLabel.Text = _table.RowsCount.ToString();
         }
 
         private void OnSelectedChanged()
         {
-            SelectedLabel.Text = $"{_table.SeletedSum} ({_table.SelectedRows})";
+            _selectedLabel.Text = $"{_table.SeletedSum} ({_table.SelectedRows})";
         }
     }
 }

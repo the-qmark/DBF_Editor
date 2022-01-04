@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,6 +30,9 @@ namespace DBF_Editor
         private void MainForm_Load(object sender, EventArgs e)
         {
             #region системные настройки
+            dataGridView1.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(dataGridView1, true, null);
+            dataGridView2.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(dataGridView2, true, null);
+            mainSplitContainer.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(mainSplitContainer, true, null);
             var myCulture = (CultureInfo)new CultureInfo("ru-RU").Clone();
             myCulture.NumberFormat.NumberDecimalSeparator = ".";
             Thread.CurrentThread.CurrentCulture = myCulture;
@@ -57,7 +61,7 @@ namespace DBF_Editor
             }
 
             _table1.GetDataFrom(_tempTable);
-            _infoPanel1.NameTextBox.Text = true ? _fileName.Substring(_fileName.Length - 3) : _fileName; // ** settings
+            _infoPanel1.NameTextBox.Text = _fileName.Length > 3 ?  _fileName.Substring(_fileName.Length - 3) : _fileName; // ** settings
         }
 
         private bool CheckValid(DataTable dt)

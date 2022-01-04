@@ -60,10 +60,6 @@ namespace DBF_Editor
             this.nameTextBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonsPanel1 = new System.Windows.Forms.Panel();
-            this.deleteButton1 = new System.Windows.Forms.Button();
-            this.cloneButton1 = new System.Windows.Forms.Button();
-            this.editButton1 = new System.Windows.Forms.Button();
-            this.moveButton1 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.infoPanel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -79,6 +75,11 @@ namespace DBF_Editor
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.deleteButton1 = new System.Windows.Forms.ToolStripButton();
+            this.moveButton1 = new System.Windows.Forms.ToolStripButton();
+            this.editButton1 = new System.Windows.Forms.ToolStripButton();
+            this.cloneButton1 = new System.Windows.Forms.ToolStripButton();
             this.statusStrip.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
@@ -91,6 +92,7 @@ namespace DBF_Editor
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.infoPanel2.SuspendLayout();
             this.buttonsPanel2.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -110,9 +112,9 @@ namespace DBF_Editor
             this.statusStrip.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip.Location = new System.Drawing.Point(0, 595);
+            this.statusStrip.Location = new System.Drawing.Point(0, 722);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(969, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1107, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -138,7 +140,7 @@ namespace DBF_Editor
             this.сервисToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(969, 27);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1107, 27);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -243,8 +245,8 @@ namespace DBF_Editor
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView2);
             this.mainSplitContainer.Panel2.Controls.Add(this.infoPanel2);
             this.mainSplitContainer.Panel2.Controls.Add(this.buttonsPanel2);
-            this.mainSplitContainer.Size = new System.Drawing.Size(969, 568);
-            this.mainSplitContainer.SplitterDistance = 475;
+            this.mainSplitContainer.Size = new System.Drawing.Size(1107, 695);
+            this.mainSplitContainer.SplitterDistance = 542;
             this.mainSplitContainer.SplitterWidth = 10;
             this.mainSplitContainer.TabIndex = 1;
             // 
@@ -262,7 +264,7 @@ namespace DBF_Editor
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(475, 382);
+            this.dataGridView1.Size = new System.Drawing.Size(542, 509);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             this.dataGridView1.Enter += new System.EventHandler(this.dataGridView1_Enter);
@@ -283,7 +285,7 @@ namespace DBF_Editor
             this.infoPanel1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoPanel1.Location = new System.Drawing.Point(0, 79);
             this.infoPanel1.Name = "infoPanel1";
-            this.infoPanel1.Size = new System.Drawing.Size(475, 107);
+            this.infoPanel1.Size = new System.Drawing.Size(542, 107);
             this.infoPanel1.TabIndex = 1;
             // 
             // selectedSumAndRowsLabel1
@@ -369,68 +371,13 @@ namespace DBF_Editor
             // buttonsPanel1
             // 
             this.buttonsPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonsPanel1.Controls.Add(this.deleteButton1);
-            this.buttonsPanel1.Controls.Add(this.cloneButton1);
-            this.buttonsPanel1.Controls.Add(this.editButton1);
-            this.buttonsPanel1.Controls.Add(this.moveButton1);
+            this.buttonsPanel1.Controls.Add(this.toolStrip1);
             this.buttonsPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonsPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonsPanel1.Location = new System.Drawing.Point(0, 0);
             this.buttonsPanel1.Name = "buttonsPanel1";
-            this.buttonsPanel1.Size = new System.Drawing.Size(475, 79);
+            this.buttonsPanel1.Size = new System.Drawing.Size(542, 79);
             this.buttonsPanel1.TabIndex = 0;
-            // 
-            // deleteButton1
-            // 
-            this.deleteButton1.AutoSize = true;
-            this.deleteButton1.BackColor = System.Drawing.Color.Transparent;
-            this.deleteButton1.FlatAppearance.BorderSize = 0;
-            this.deleteButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton1.Image = global::DBF_Editor.Properties.Resources.delete;
-            this.deleteButton1.Location = new System.Drawing.Point(237, 4);
-            this.deleteButton1.Name = "deleteButton1";
-            this.deleteButton1.Size = new System.Drawing.Size(72, 72);
-            this.deleteButton1.TabIndex = 4;
-            this.deleteButton1.UseVisualStyleBackColor = false;
-            // 
-            // cloneButton1
-            // 
-            this.cloneButton1.AutoSize = true;
-            this.cloneButton1.BackColor = System.Drawing.Color.Transparent;
-            this.cloneButton1.FlatAppearance.BorderSize = 0;
-            this.cloneButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cloneButton1.Image = global::DBF_Editor.Properties.Resources.clone;
-            this.cloneButton1.Location = new System.Drawing.Point(159, 4);
-            this.cloneButton1.Name = "cloneButton1";
-            this.cloneButton1.Size = new System.Drawing.Size(72, 72);
-            this.cloneButton1.TabIndex = 3;
-            this.cloneButton1.UseVisualStyleBackColor = false;
-            // 
-            // editButton1
-            // 
-            this.editButton1.AutoSize = true;
-            this.editButton1.BackColor = System.Drawing.Color.Transparent;
-            this.editButton1.FlatAppearance.BorderSize = 0;
-            this.editButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editButton1.Image = global::DBF_Editor.Properties.Resources.edit;
-            this.editButton1.Location = new System.Drawing.Point(81, 4);
-            this.editButton1.Name = "editButton1";
-            this.editButton1.Size = new System.Drawing.Size(72, 72);
-            this.editButton1.TabIndex = 2;
-            this.editButton1.UseVisualStyleBackColor = false;
-            // 
-            // moveButton1
-            // 
-            this.moveButton1.AutoSize = true;
-            this.moveButton1.BackColor = System.Drawing.Color.Transparent;
-            this.moveButton1.FlatAppearance.BorderSize = 0;
-            this.moveButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moveButton1.Image = global::DBF_Editor.Properties.Resources.moveToRight;
-            this.moveButton1.Location = new System.Drawing.Point(3, 4);
-            this.moveButton1.Name = "moveButton1";
-            this.moveButton1.Size = new System.Drawing.Size(72, 72);
-            this.moveButton1.TabIndex = 1;
-            this.moveButton1.UseVisualStyleBackColor = false;
             // 
             // dataGridView2
             // 
@@ -438,7 +385,7 @@ namespace DBF_Editor
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 163);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(484, 405);
+            this.dataGridView2.Size = new System.Drawing.Size(555, 532);
             this.dataGridView2.TabIndex = 3;
             // 
             // infoPanel2
@@ -456,7 +403,7 @@ namespace DBF_Editor
             this.infoPanel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoPanel2.Location = new System.Drawing.Point(0, 50);
             this.infoPanel2.Name = "infoPanel2";
-            this.infoPanel2.Size = new System.Drawing.Size(484, 113);
+            this.infoPanel2.Size = new System.Drawing.Size(555, 113);
             this.infoPanel2.TabIndex = 2;
             // 
             // label8
@@ -549,7 +496,7 @@ namespace DBF_Editor
             this.buttonsPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonsPanel2.Location = new System.Drawing.Point(0, 0);
             this.buttonsPanel2.Name = "buttonsPanel2";
-            this.buttonsPanel2.Size = new System.Drawing.Size(484, 50);
+            this.buttonsPanel2.Size = new System.Drawing.Size(555, 50);
             this.buttonsPanel2.TabIndex = 1;
             // 
             // button5
@@ -596,14 +543,81 @@ namespace DBF_Editor
             this.button8.Text = "0";
             this.button8.UseVisualStyleBackColor = false;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.moveButton1,
+            this.editButton1,
+            this.cloneButton1,
+            this.deleteButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(542, 79);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // deleteButton1
+            // 
+            this.deleteButton1.AutoSize = false;
+            this.deleteButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteButton1.Enabled = false;
+            this.deleteButton1.Image = global::DBF_Editor.Properties.Resources.delete;
+            this.deleteButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteButton1.Name = "deleteButton1";
+            this.deleteButton1.Size = new System.Drawing.Size(72, 76);
+            this.deleteButton1.Text = "toolStripButton1";
+            this.deleteButton1.ToolTipText = "Удалить";
+            // 
+            // moveButton1
+            // 
+            this.moveButton1.AutoSize = false;
+            this.moveButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.moveButton1.Enabled = false;
+            this.moveButton1.Image = global::DBF_Editor.Properties.Resources.moveToRight;
+            this.moveButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.moveButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.moveButton1.Name = "moveButton1";
+            this.moveButton1.Size = new System.Drawing.Size(72, 76);
+            this.moveButton1.Text = "toolStripButton1";
+            this.moveButton1.ToolTipText = "Переместить";
+            // 
+            // editButton1
+            // 
+            this.editButton1.AutoSize = false;
+            this.editButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editButton1.Enabled = false;
+            this.editButton1.Image = global::DBF_Editor.Properties.Resources.edit;
+            this.editButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editButton1.Name = "editButton1";
+            this.editButton1.Size = new System.Drawing.Size(72, 76);
+            this.editButton1.Text = "toolStripButton1";
+            this.editButton1.ToolTipText = "Редактировать";
+            // 
+            // cloneButton1
+            // 
+            this.cloneButton1.AutoSize = false;
+            this.cloneButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cloneButton1.Enabled = false;
+            this.cloneButton1.Image = global::DBF_Editor.Properties.Resources.clone;
+            this.cloneButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cloneButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cloneButton1.Name = "cloneButton1";
+            this.cloneButton1.Size = new System.Drawing.Size(72, 76);
+            this.cloneButton1.Text = "toolStripButton1";
+            this.cloneButton1.ToolTipText = "Клонировать";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 617);
+            this.ClientSize = new System.Drawing.Size(1107, 744);
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.mainMenuStrip);
             this.Controls.Add(this.statusStrip);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";
@@ -627,6 +641,8 @@ namespace DBF_Editor
             this.infoPanel2.ResumeLayout(false);
             this.infoPanel2.PerformLayout();
             this.buttonsPanel2.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -663,10 +679,6 @@ namespace DBF_Editor
         private System.Windows.Forms.TextBox nameTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel buttonsPanel1;
-        private System.Windows.Forms.Button deleteButton1;
-        private System.Windows.Forms.Button cloneButton1;
-        private System.Windows.Forms.Button editButton1;
-        private System.Windows.Forms.Button moveButton1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Panel infoPanel2;
         private System.Windows.Forms.Label label8;
@@ -682,6 +694,11 @@ namespace DBF_Editor
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton moveButton1;
+        private System.Windows.Forms.ToolStripButton editButton1;
+        private System.Windows.Forms.ToolStripButton cloneButton1;
+        private System.Windows.Forms.ToolStripButton deleteButton1;
     }
 }
 

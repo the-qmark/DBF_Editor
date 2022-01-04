@@ -41,13 +41,12 @@ namespace DBF_Editor
         {
             _buttonsPanel = buttonsPanel;
             _dataGridView = dataGridView;
-            
-            
 
             _buttonsPanel.MoveBtn.Click += MoveRows;
             _buttonsPanel.EditBtn.Click += EditRow;
             _buttonsPanel.CloneBtn.Click += CloneRow;
             _buttonsPanel.DeleteBtn.Click += DeleteRow;
+            SelectedChanged += ButtonsControl;
         }
 
         public void UpdateName(string newName)
@@ -130,7 +129,6 @@ namespace DBF_Editor
                     _dataTable.Rows.Remove(_dataTable.Rows[row.Index]);
                 }
 
-                ClearSelection();
                 AcceptChanges();
             }
             catch (Exception ex)
@@ -171,6 +169,14 @@ namespace DBF_Editor
             }
 
             SelectedChanged?.Invoke();
+        }
+
+        private void ButtonsControl()
+        {
+            _buttonsPanel.MoveBtn.Enabled = _selectedRows > 0 ? true : false;
+            _buttonsPanel.EditBtn.Enabled = _selectedRows == 1 ? true : false;
+            _buttonsPanel.CloneBtn.Enabled = _selectedRows == 1 ? true : false;
+            _buttonsPanel.DeleteBtn.Enabled = _selectedRows > 0 ? true : false;
         }
 
         private decimal UpdateTotal()
@@ -222,6 +228,5 @@ namespace DBF_Editor
             _selectedRows = 0;
             SelectedChanged?.Invoke();
         }
-
     }
 }
