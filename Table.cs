@@ -59,6 +59,11 @@ namespace DBF_Editor
         {
             try
             {
+                _dataGridView.SelectionChanged -= SelectRow;
+                _dataTable?.Clear();
+                _header?.Clear();
+                _footer?.Clear();
+
                 _dataTable = tempTable.Copy(); // получается новая таблица
                 _header = tempTable.Clone();
                 _footer = tempTable.Clone();
