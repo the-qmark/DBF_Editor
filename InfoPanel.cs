@@ -26,6 +26,7 @@ namespace DBF_Editor
             _table = table;
 
             _table.TableChanged += OnTableChanged;
+            _table.SelectedChanged += OnSelectedChanged;
 
             NameTextBox.TextChanged += OnNameChanged;
         }
@@ -39,6 +40,11 @@ namespace DBF_Editor
         {
             TotalSumLabel.Text = _table.TotalSum.ToString();
             TotalRowsLabel.Text = _table.RowsCount.ToString();
+        }
+
+        private void OnSelectedChanged()
+        {
+            SelectedLabel.Text = $"{_table.SeletedSum} ({_table.SelectedRows})";
         }
     }
 }

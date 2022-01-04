@@ -17,6 +17,8 @@ namespace DBF_Editor
         public DataTable DataTable { get => _dataTable; }
         public decimal TotalSum { get => UpdateTotal(); }
         public int RowsCount { get => UpdateRowsCount(); }
+        public decimal SeletedSum { get => _seletedSum; }
+        public decimal SelectedRows { get => _selectedRows; }
 
         private string _name;
 
@@ -39,6 +41,8 @@ namespace DBF_Editor
         {
             _buttonsPanel = buttonsPanel;
             _dataGridView = dataGridView;
+            
+            
 
             _buttonsPanel.MoveBtn.Click += MoveRows;
             _buttonsPanel.EditBtn.Click += EditRow;
@@ -72,7 +76,6 @@ namespace DBF_Editor
                 _dataGridView.DataSource = _dataTable;
 
                 AcceptChanges();
-
             }
             catch (Exception e)
             {
@@ -85,6 +88,8 @@ namespace DBF_Editor
         {
             _dataTable?.AcceptChanges();
             UpdateNumbering();
+            ClearSelection();
+            _dataGridView.SelectionChanged += SelectRow;
             TableChanged?.Invoke();
         }
 
@@ -105,26 +110,72 @@ namespace DBF_Editor
 
         private void DeleteRow(object sender, EventArgs e)
         {
-            //MessageBox.Show("DELETE ROW" + _name);
-            _dataTable.Rows[1].Delete();
-            AcceptChanges();
+            try
+            {
+                if (_dataGridView.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Не выделены строки для удаления", "Ошибка удаления", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                _dataGridView.SelectionChanged -= SelectRow;
+
+                foreach (DataGridViewRow row in _dataGridView.SelectedRows)
+                {
+                    _dataTable.Rows.Remove(_dataTable.Rows[row.Index]);
+                }
+
+                ClearSelection();
+                AcceptChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка удаления строки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SelectRow(object sender, EventArgs e)
+        {
+            _seletedSum = 0;
+            _selectedRows = 0;
+            decimal _step = 0;
+
+            DataGridViewSelectedRowCollection _rowCollection = _dataGridView.SelectedRows;
+
+            foreach (DataGridViewRow row in _rowCollection)
+            {
+                try
+                {
+                    if (Decimal.TryParse(_dataTable.Rows[row.Index].Field<string>(5), out _step))
+                    {
+                        _seletedSum += _step;
+                        _selectedRows += 1;
+                    }
+                    else
+                    {
+                        _seletedSum = 0;
+                        _selectedRows = 0;
+                        break;
+                    }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Ошибка #1 " + _name + " . Строка№" + _dataTable.Rows[row.Index].Field<string>(0), exc.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            SelectedChanged?.Invoke();
         }
 
         private decimal UpdateTotal()
         {
             try
             {
-                if (_dataTable == null)
-                    return 0;
-
-                if (_dataTable.Rows.Count == 0)
-                {
-                    _totalSum = 0;
-                    return _totalSum;
-                }
-
                 _totalSum = 0;
                 decimal _step = 0;
+                if (_dataTable == null || _dataTable.Rows.Count == 0)
+                    return 0;
 
                 for (int i = 0; i < _dataTable.Rows.Count; i++)
                 {
@@ -158,6 +209,14 @@ namespace DBF_Editor
                 _dataTable.Rows[i][0] = (i + 1).ToString();
         }
 
+        private void ClearSelection()
+        {
+            foreach (DataGridViewRow row in _dataGridView.SelectedRows)
+                row.Selected = false;
+            _seletedSum = 0;
+            _selectedRows = 0;
+            SelectedChanged?.Invoke();
+        }
 
     }
 }

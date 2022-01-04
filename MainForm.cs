@@ -52,7 +52,7 @@ namespace DBF_Editor
 
             if (CheckValid(_tempTable) == false)
             {
-                MessageBox.Show($"Ошибка в сруктуре таблицы", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в структуре таблицы", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -75,6 +75,21 @@ namespace DBF_Editor
         }
 
         private void nameTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
