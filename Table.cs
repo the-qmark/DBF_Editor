@@ -10,16 +10,34 @@ namespace DBF_Editor
 {
     class Table
     {
+        //public event Action<string> NameSet;
+        public event Action TableChanged;
+        public event Action SelectedChanged;
+
+        public DataTable DataTable { get => _dataTable; }
+        public decimal TotalSum { get => UpdateTotal(); }
+        public int RowsCount { get => UpdateRowsCount(); }
+
+        private string _name;
+
         private ButtonsPanel _buttonsPanel;
-        private InfoPanel _infoPanel;
+        //private InfoPanel _infoPanel;
         private DataGridView _dataGridView;
 
-        private DataTable _dataTable;
+        private DataTable _header = new DataTable();
+        private DataTable _dataTable = new DataTable();
+        private DataTable _footer = new DataTable();
 
-        public Table(ButtonsPanel buttonsPanel, InfoPanel infoPanel, DataGridView dataGridView)
+        private decimal _totalSum = 0.00m;
+        private int _rowsCount = 0;
+        private decimal _seletedSum = 0.00m;
+        private decimal _selectedRows = 0;
+
+        public Table() { }
+
+        public Table(ButtonsPanel buttonsPanel, DataGridView dataGridView)
         {
             _buttonsPanel = buttonsPanel;
-            _infoPanel = infoPanel;
             _dataGridView = dataGridView;
 
             _buttonsPanel.MoveBtn.Click += MoveRows;
@@ -28,11 +46,23 @@ namespace DBF_Editor
             _buttonsPanel.DeleteBtn.Click += DeleteRow;
         }
 
+        public void UpdateName(string newName)
+        {
+            _name = newName;
+        }
+
         public void GetDataFrom(DataTable tempTable)
         {
             try
             {
                 _dataTable = tempTable.Copy(); // получается новая таблица
+                _header = tempTable.Clone();
+                _footer = tempTable.Clone();
+                                
+                for (int i = 0; i < 6; i++)
+                    _header.ImportRow(tempTable.Rows[i]);
+
+                _footer.ImportRow(tempTable.Rows[tempTable.Rows.Count - 1]);
 
                 for (int i = 0; i < 6; i++) // удаление шапки
                     _dataTable.Rows[i].Delete();
@@ -40,6 +70,9 @@ namespace DBF_Editor
                 _dataTable.Rows[_dataTable.Rows.Count - 1].Delete(); // удаление ИТОГО
 
                 _dataGridView.DataSource = _dataTable;
+
+                AcceptChanges();
+
             }
             catch (Exception e)
             {
@@ -48,24 +81,83 @@ namespace DBF_Editor
             }
         }
 
+        private void AcceptChanges()
+        {
+            _dataTable?.AcceptChanges();
+            UpdateNumbering();
+            TableChanged?.Invoke();
+        }
+
         private void MoveRows(object sender, EventArgs e)
         {
-            MessageBox.Show("MOVE ROWS");
+            MessageBox.Show("MOVE ROWS " + _name);
         }
 
         private void EditRow(object sender, EventArgs e)
         {
-            MessageBox.Show("EDIT ROW");
+            MessageBox.Show("EDIT ROW" + _name);
         }
 
         private void CloneRow(object sender, EventArgs e)
         {
-            MessageBox.Show("CLONE ROW");
+            MessageBox.Show("CLONE ROW" + _name);
         }
 
         private void DeleteRow(object sender, EventArgs e)
         {
-            MessageBox.Show("DELETE ROW");
+            //MessageBox.Show("DELETE ROW" + _name);
+            _dataTable.Rows[1].Delete();
+            AcceptChanges();
         }
+
+        private decimal UpdateTotal()
+        {
+            try
+            {
+                if (_dataTable == null)
+                    return 0;
+
+                if (_dataTable.Rows.Count == 0)
+                {
+                    _totalSum = 0;
+                    return _totalSum;
+                }
+
+                _totalSum = 0;
+                decimal _step = 0;
+
+                for (int i = 0; i < _dataTable.Rows.Count; i++)
+                {
+                    if (Decimal.TryParse(_dataTable.Rows[i].Field<string>(5), out _step))
+                        _totalSum += _step;
+                    else
+                        throw new Exception();
+                }
+
+                return _totalSum;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Ошибка вычисления суммы в таблице " + _name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+        private int UpdateRowsCount()
+        {
+            _rowsCount = _dataTable.Rows.Count;
+            return _rowsCount;
+        }
+
+        public void UpdateNumbering()
+        {
+            if (_dataTable == null || _dataTable.Rows.Count == 0)
+                return;
+
+            for (int i = 0; i < _dataTable.Rows.Count; i++)
+                _dataTable.Rows[i][0] = (i + 1).ToString();
+        }
+
+
     }
 }

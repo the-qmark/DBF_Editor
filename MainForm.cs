@@ -35,8 +35,8 @@ namespace DBF_Editor
             #endregion
 
             _buttonsPanel1 = new ButtonsPanel(moveButton1, editButton1, cloneButton1, deleteButton1);
-            _infoPanel1 = new InfoPanel(nameTextBox1, totalSumLabel1, totalRowsLabel1, selectedSumAndRowsLabel1);
-            _table1 = new Table(_buttonsPanel1, _infoPanel1, dataGridView1);
+            _table1 = new Table(_buttonsPanel1, dataGridView1);
+            _infoPanel1 = new InfoPanel(nameTextBox1, totalSumLabel1, totalRowsLabel1, selectedSumAndRowsLabel1, _table1);
         }
 
         private void открытьdbfToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,20 +44,20 @@ namespace DBF_Editor
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
 
-            string _fileName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
             string _filePath = Path.GetDirectoryName(openFileDialog.FileName);
+            string _fileName = Path.GetFileNameWithoutExtension(openFileDialog.FileName);
 
             DBFConnection _dbfConnection = new DBFConnection(_fileName, _filePath);
-
             DataTable _tempTable = _dbfConnection.GetDataTable();
 
             if (CheckValid(_tempTable) == false)
             {
-                MessageBox.Show($"Ошибка сруктуры таблицы", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка в сруктуре таблицы", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             _table1.GetDataFrom(_tempTable);
+            _infoPanel1.NameTextBox.Text = true ? _fileName.Substring(_fileName.Length - 3) : _fileName; // ** settings
         }
 
         private bool CheckValid(DataTable dt)
@@ -72,6 +72,11 @@ namespace DBF_Editor
                 return false;
 
             return true;
+        }
+
+        private void nameTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

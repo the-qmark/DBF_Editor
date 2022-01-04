@@ -260,6 +260,7 @@ namespace DBF_Editor
             this.dataGridView1.Location = new System.Drawing.Point(0, 186);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(475, 382);
             this.dataGridView1.TabIndex = 2;
             // 
@@ -349,6 +350,7 @@ namespace DBF_Editor
             this.nameTextBox1.Size = new System.Drawing.Size(91, 30);
             this.nameTextBox1.TabIndex = 1;
             this.nameTextBox1.Text = "123";
+            this.nameTextBox1.TextChanged += new System.EventHandler(this.nameTextBox1_TextChanged);
             // 
             // label1
             // 
