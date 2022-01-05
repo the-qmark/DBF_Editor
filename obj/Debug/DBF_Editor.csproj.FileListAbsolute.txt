@@ -18,3 +18,4 @@ C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.csproj.GenerateResource
 C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.csproj.CoreCompileInputs.cache
 C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.exe
 C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.pdb
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.EditForm.resources

@@ -104,7 +104,8 @@ namespace DBF_Editor
 
         private void EditRow(object sender, EventArgs e)
         {
-            MessageBox.Show("EDIT ROW" + _name);
+            EditForm _editForm = new EditForm();
+            _editForm.ShowDialog();
         }
 
         private void CloneRow(object sender, EventArgs e)
