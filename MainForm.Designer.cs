@@ -269,6 +269,7 @@ namespace DBF_Editor
             this.dataGridView1.Size = new System.Drawing.Size(542, 509);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             this.dataGridView1.Enter += new System.EventHandler(this.dataGridView1_Enter);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -296,9 +297,8 @@ namespace DBF_Editor
             this.selectedSumAndRowsLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.selectedSumAndRowsLabel1.Location = new System.Drawing.Point(119, 78);
             this.selectedSumAndRowsLabel1.Name = "selectedSumAndRowsLabel1";
-            this.selectedSumAndRowsLabel1.Size = new System.Drawing.Size(86, 23);
+            this.selectedSumAndRowsLabel1.Size = new System.Drawing.Size(0, 23);
             this.selectedSumAndRowsLabel1.TabIndex = 7;
-            this.selectedSumAndRowsLabel1.Text = "45684 (6)";
             // 
             // label6
             // 
@@ -316,9 +316,8 @@ namespace DBF_Editor
             this.totalRowsLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.totalRowsLabel1.Location = new System.Drawing.Point(119, 58);
             this.totalRowsLabel1.Name = "totalRowsLabel1";
-            this.totalRowsLabel1.Size = new System.Drawing.Size(40, 23);
+            this.totalRowsLabel1.Size = new System.Drawing.Size(0, 23);
             this.totalRowsLabel1.TabIndex = 5;
-            this.totalRowsLabel1.Text = "506";
             // 
             // totalSumLabel1
             // 
@@ -326,9 +325,8 @@ namespace DBF_Editor
             this.totalSumLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.totalSumLabel1.Location = new System.Drawing.Point(119, 38);
             this.totalSumLabel1.Name = "totalSumLabel1";
-            this.totalSumLabel1.Size = new System.Drawing.Size(95, 23);
+            this.totalSumLabel1.Size = new System.Drawing.Size(0, 23);
             this.totalSumLabel1.TabIndex = 4;
-            this.totalSumLabel1.Text = "157684,04";
             // 
             // label3
             // 
@@ -357,7 +355,6 @@ namespace DBF_Editor
             this.nameTextBox1.Name = "nameTextBox1";
             this.nameTextBox1.Size = new System.Drawing.Size(91, 30);
             this.nameTextBox1.TabIndex = 1;
-            this.nameTextBox1.Text = "123";
             this.nameTextBox1.TextChanged += new System.EventHandler(this.nameTextBox1_TextChanged);
             // 
             // label1

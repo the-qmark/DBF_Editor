@@ -138,6 +138,7 @@ namespace DBF_Editor
             this.newSumTextBox.TabIndex = 1;
             this.newSumTextBox.Text = "40817810611250108383";
             this.newSumTextBox.TextChanged += new System.EventHandler(this.newSumTextBox_TextChanged);
+            this.newSumTextBox.Leave += new System.EventHandler(this.newSumTextBox_Leave);
             // 
             // newOtchTextBox
             // 

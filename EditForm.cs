@@ -53,7 +53,7 @@ namespace DBF_Editor
 
         private void newSumTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (Decimal.TryParse(newSumTextBox.Text, out decimal _out))
+            if (Decimal.TryParse(newSumTextBox.Text, out decimal sum) && newSumTextBox.Text.Contains("."))
             {
                 saveButton.Enabled = true;
                 newSumTextBox.BackColor = Color.White;
@@ -65,6 +65,11 @@ namespace DBF_Editor
                 newSumTextBox.BackColor = Color.Red;
                 toolTip1.SetToolTip(newSumTextBox, "Должны использоваться только цифры и делитель \"точка\"");
             }
+        }
+
+        private void newSumTextBox_Leave(object sender, EventArgs e)
+        {
+            
         }
     }
 }

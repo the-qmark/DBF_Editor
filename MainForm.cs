@@ -97,5 +97,10 @@ namespace DBF_Editor
         {
 
         }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

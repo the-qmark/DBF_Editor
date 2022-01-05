@@ -17,7 +17,7 @@ namespace DBF_Editor
         public DataTable DataTable { get => _dataTable; }
         public decimal TotalSum { get => UpdateTotal(); }
         public int RowsCount { get => UpdateRowsCount(); }
-        public decimal SeletedSum { get => _seletedSum; }
+        public decimal SeletedSum { get => _selectedSum; }
         public decimal SelectedRows { get => _selectedRows; }
 
         private string _name;
@@ -32,7 +32,7 @@ namespace DBF_Editor
 
         private decimal _totalSum = 0.00m;
         private int _rowsCount = 0;
-        private decimal _seletedSum = 0.00m;
+        private decimal _selectedSum = 0.00m;
         private decimal _selectedRows = 0;
 
         public Table() { }
@@ -145,7 +145,7 @@ namespace DBF_Editor
 
         private void SelectRow(object sender, EventArgs e)
         {
-            _seletedSum = 0;
+            _selectedSum = 0;
             _selectedRows = 0;
             decimal _step = 0;
 
@@ -157,12 +157,12 @@ namespace DBF_Editor
                 {
                     if (Decimal.TryParse(_dataTable.Rows[row.Index].Field<string>(5), out _step))
                     {
-                        _seletedSum += _step;
+                        _selectedSum += _step;
                         _selectedRows += 1;
                     }
                     else
                     {
-                        _seletedSum = 0;
+                        _selectedSum = 0;
                         _selectedRows = 0;
                         break;
                     }
@@ -230,7 +230,7 @@ namespace DBF_Editor
         {
             foreach (DataGridViewRow row in _dataGridView.SelectedRows)
                 row.Selected = false;
-            _seletedSum = 0;
+            _selectedSum = 0;
             _selectedRows = 0;
             SelectedChanged?.Invoke();
         }
