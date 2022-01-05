@@ -104,8 +104,13 @@ namespace DBF_Editor
 
         private void EditRow(object sender, EventArgs e)
         {
-            EditForm _editForm = new EditForm();
+            _dataGridView.SelectionChanged -= SelectRow;
+            DataRow _rowForEdit = _dataTable.Rows[_dataGridView.SelectedRows[0].Index];
+
+            EditForm _editForm = new EditForm(_rowForEdit);
             _editForm.ShowDialog();
+
+            AcceptChanges();
         }
 
         private void CloneRow(object sender, EventArgs e)

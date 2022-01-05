@@ -29,21 +29,33 @@ namespace DBF_Editor
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.oldBankTextBox = new System.Windows.Forms.TextBox();
+            this.oldFamTextBox = new System.Windows.Forms.TextBox();
+            this.oldNameTextBox = new System.Windows.Forms.TextBox();
+            this.oldOtchTextBox = new System.Windows.Forms.TextBox();
+            this.oldSumTextBox = new System.Windows.Forms.TextBox();
+            this.newSumTextBox = new System.Windows.Forms.TextBox();
+            this.newOtchTextBox = new System.Windows.Forms.TextBox();
+            this.newNameTextBox = new System.Windows.Forms.TextBox();
+            this.newFamTextBox = new System.Windows.Forms.TextBox();
+            this.newBankTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,116 +68,122 @@ namespace DBF_Editor
             this.label1.TabIndex = 0;
             this.label1.Text = "Исходные данные";
             // 
-            // textBox1
+            // oldBankTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(16, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 31);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "40817810611250108383";
+            this.oldBankTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.oldBankTextBox.Enabled = false;
+            this.oldBankTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oldBankTextBox.Location = new System.Drawing.Point(16, 45);
+            this.oldBankTextBox.Name = "oldBankTextBox";
+            this.oldBankTextBox.Size = new System.Drawing.Size(229, 31);
+            this.oldBankTextBox.TabIndex = 1;
+            this.oldBankTextBox.TabStop = false;
+            this.oldBankTextBox.Text = "40817810611250108383";
             // 
-            // textBox2
+            // oldFamTextBox
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(16, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(229, 31);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "40817810611250108383";
+            this.oldFamTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.oldFamTextBox.Enabled = false;
+            this.oldFamTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oldFamTextBox.Location = new System.Drawing.Point(16, 81);
+            this.oldFamTextBox.Name = "oldFamTextBox";
+            this.oldFamTextBox.Size = new System.Drawing.Size(229, 31);
+            this.oldFamTextBox.TabIndex = 2;
+            this.oldFamTextBox.TabStop = false;
+            this.oldFamTextBox.Text = "40817810611250108383";
             // 
-            // textBox3
+            // oldNameTextBox
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(16, 118);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(229, 31);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "40817810611250108383";
+            this.oldNameTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.oldNameTextBox.Enabled = false;
+            this.oldNameTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oldNameTextBox.Location = new System.Drawing.Point(16, 118);
+            this.oldNameTextBox.Name = "oldNameTextBox";
+            this.oldNameTextBox.Size = new System.Drawing.Size(229, 31);
+            this.oldNameTextBox.TabIndex = 3;
+            this.oldNameTextBox.TabStop = false;
+            this.oldNameTextBox.Text = "40817810611250108383";
             // 
-            // textBox4
+            // oldOtchTextBox
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(16, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(229, 31);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "40817810611250108383";
+            this.oldOtchTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.oldOtchTextBox.Enabled = false;
+            this.oldOtchTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oldOtchTextBox.Location = new System.Drawing.Point(16, 155);
+            this.oldOtchTextBox.Name = "oldOtchTextBox";
+            this.oldOtchTextBox.Size = new System.Drawing.Size(229, 31);
+            this.oldOtchTextBox.TabIndex = 4;
+            this.oldOtchTextBox.TabStop = false;
+            this.oldOtchTextBox.Text = "40817810611250108383";
             // 
-            // textBox5
+            // oldSumTextBox
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.Location = new System.Drawing.Point(16, 192);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(229, 31);
-            this.textBox5.TabIndex = 5;
-            this.textBox5.Text = "40817810611250108383";
+            this.oldSumTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.oldSumTextBox.Enabled = false;
+            this.oldSumTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oldSumTextBox.Location = new System.Drawing.Point(16, 192);
+            this.oldSumTextBox.Name = "oldSumTextBox";
+            this.oldSumTextBox.Size = new System.Drawing.Size(229, 31);
+            this.oldSumTextBox.TabIndex = 5;
+            this.oldSumTextBox.TabStop = false;
+            this.oldSumTextBox.Text = "40817810611250108383";
             // 
-            // textBox6
+            // newSumTextBox
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox6.Location = new System.Drawing.Point(308, 192);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(229, 31);
-            this.textBox6.TabIndex = 10;
-            this.textBox6.Text = "40817810611250108383";
+            this.newSumTextBox.BackColor = System.Drawing.Color.White;
+            this.newSumTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newSumTextBox.Location = new System.Drawing.Point(297, 192);
+            this.newSumTextBox.Name = "newSumTextBox";
+            this.newSumTextBox.Size = new System.Drawing.Size(229, 31);
+            this.newSumTextBox.TabIndex = 1;
+            this.newSumTextBox.Text = "40817810611250108383";
+            this.newSumTextBox.TextChanged += new System.EventHandler(this.newSumTextBox_TextChanged);
             // 
-            // textBox7
+            // newOtchTextBox
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox7.Location = new System.Drawing.Point(308, 155);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(229, 31);
-            this.textBox7.TabIndex = 9;
-            this.textBox7.Text = "40817810611250108383";
+            this.newOtchTextBox.BackColor = System.Drawing.Color.White;
+            this.newOtchTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newOtchTextBox.Location = new System.Drawing.Point(297, 155);
+            this.newOtchTextBox.Name = "newOtchTextBox";
+            this.newOtchTextBox.Size = new System.Drawing.Size(229, 31);
+            this.newOtchTextBox.TabIndex = 7;
+            this.newOtchTextBox.Text = "40817810611250108383";
             // 
-            // textBox8
+            // newNameTextBox
             // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox8.Location = new System.Drawing.Point(308, 118);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(229, 31);
-            this.textBox8.TabIndex = 8;
-            this.textBox8.Text = "40817810611250108383";
+            this.newNameTextBox.BackColor = System.Drawing.Color.White;
+            this.newNameTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newNameTextBox.Location = new System.Drawing.Point(297, 118);
+            this.newNameTextBox.Name = "newNameTextBox";
+            this.newNameTextBox.Size = new System.Drawing.Size(229, 31);
+            this.newNameTextBox.TabIndex = 6;
+            this.newNameTextBox.Text = "40817810611250108383";
             // 
-            // textBox9
+            // newFamTextBox
             // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox9.Location = new System.Drawing.Point(308, 81);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(229, 31);
-            this.textBox9.TabIndex = 7;
-            this.textBox9.Text = "40817810611250108383";
+            this.newFamTextBox.BackColor = System.Drawing.Color.White;
+            this.newFamTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newFamTextBox.Location = new System.Drawing.Point(297, 81);
+            this.newFamTextBox.Name = "newFamTextBox";
+            this.newFamTextBox.Size = new System.Drawing.Size(229, 31);
+            this.newFamTextBox.TabIndex = 5;
+            this.newFamTextBox.Text = "40817810611250108383";
             // 
-            // textBox10
+            // newBankTextBox
             // 
-            this.textBox10.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox10.Location = new System.Drawing.Point(308, 44);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(229, 31);
-            this.textBox10.TabIndex = 6;
-            this.textBox10.Text = "40817810611250108383";
+            this.newBankTextBox.BackColor = System.Drawing.Color.White;
+            this.newBankTextBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newBankTextBox.Location = new System.Drawing.Point(297, 44);
+            this.newBankTextBox.Name = "newBankTextBox";
+            this.newBankTextBox.Size = new System.Drawing.Size(229, 31);
+            this.newBankTextBox.TabIndex = 4;
+            this.newBankTextBox.Text = "40817810611250108383";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(304, 9);
+            this.label2.Location = new System.Drawing.Point(293, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 23);
             this.label2.TabIndex = 11;
@@ -173,39 +191,125 @@ namespace DBF_Editor
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::DBF_Editor.Properties.Resources.right_arrow;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(263, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(251, 44);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.Size = new System.Drawing.Size(40, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::DBF_Editor.Properties.Resources.right_arrow;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(251, 81);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(40, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::DBF_Editor.Properties.Resources.right_arrow;
+            this.pictureBox3.InitialImage = null;
+            this.pictureBox3.Location = new System.Drawing.Point(251, 118);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 31);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 14;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::DBF_Editor.Properties.Resources.right_arrow;
+            this.pictureBox4.InitialImage = null;
+            this.pictureBox4.Location = new System.Drawing.Point(251, 155);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(40, 31);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 15;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::DBF_Editor.Properties.Resources.right_arrow;
+            this.pictureBox5.InitialImage = null;
+            this.pictureBox5.Location = new System.Drawing.Point(251, 192);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(40, 31);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 16;
+            this.pictureBox5.TabStop = false;
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveButton.Location = new System.Drawing.Point(160, 245);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(229, 32);
+            this.saveButton.TabIndex = 2;
+            this.saveButton.Text = "СОХРАНИТЬ";
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cancelButton.Location = new System.Drawing.Point(199, 285);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(147, 25);
+            this.cancelButton.TabIndex = 3;
+            this.cancelButton.Text = "ОТМЕНА";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "Ошибка";
             // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 322);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.newSumTextBox);
+            this.Controls.Add(this.newOtchTextBox);
+            this.Controls.Add(this.newNameTextBox);
+            this.Controls.Add(this.newFamTextBox);
+            this.Controls.Add(this.newBankTextBox);
+            this.Controls.Add(this.oldSumTextBox);
+            this.Controls.Add(this.oldOtchTextBox);
+            this.Controls.Add(this.oldNameTextBox);
+            this.Controls.Add(this.oldFamTextBox);
+            this.Controls.Add(this.oldBankTextBox);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EditForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Редактирование строки";
+            this.Load += new System.EventHandler(this.EditForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,17 +318,24 @@ namespace DBF_Editor
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox oldBankTextBox;
+        private System.Windows.Forms.TextBox oldFamTextBox;
+        private System.Windows.Forms.TextBox oldNameTextBox;
+        private System.Windows.Forms.TextBox oldOtchTextBox;
+        private System.Windows.Forms.TextBox oldSumTextBox;
+        private System.Windows.Forms.TextBox newSumTextBox;
+        private System.Windows.Forms.TextBox newOtchTextBox;
+        private System.Windows.Forms.TextBox newNameTextBox;
+        private System.Windows.Forms.TextBox newFamTextBox;
+        private System.Windows.Forms.TextBox newBankTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
