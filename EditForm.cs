@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -53,23 +54,46 @@ namespace DBF_Editor
 
         private void newSumTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (Decimal.TryParse(newSumTextBox.Text, out decimal sum) && newSumTextBox.Text.Contains("."))
+            if (CheckValid(newSumTextBox.Text))
             {
                 saveButton.Enabled = true;
+                saveButton.BackColor = Color.AliceBlue;
                 newSumTextBox.BackColor = Color.White;
                 toolTip1.RemoveAll();
             }
             else
             {
                 saveButton.Enabled = false;
+                saveButton.BackColor = Color.Gray;
                 newSumTextBox.BackColor = Color.Red;
-                toolTip1.SetToolTip(newSumTextBox, "Должны использоваться только цифры и делитель \"точка\"");
+                toolTip1.SetToolTip(newSumTextBox, "Должны использоваться только цифры, разделитель \"точка\" и ДВЕ цифры после него");
             }
         }
 
-        private void newSumTextBox_Leave(object sender, EventArgs e)
+        private bool CheckValid(string text)
         {
-            
+            string _alphabet = "0123456789.";
+            foreach (char c in text)
+                if (!_alphabet.Contains(c))
+                    return false;
+
+            if (!Decimal.TryParse(text, out decimal sum))
+                return false;
+
+            if (text.IndexOf("0") == 0)
+                return false;
+
+            if (!text.Contains("."))
+                return false;
+
+            int _dotIndex = newSumTextBox.Text.IndexOf(".");
+            if (_dotIndex == 0) // перед точкой нет ничего
+                return false;
+
+            if (_dotIndex != text.Length - 3) // после точки НЕ две цифры
+                return false;
+
+            return true;
         }
     }
 }

@@ -47,6 +47,7 @@ namespace DBF_Editor
             _buttonsPanel.CloneBtn.Click += CloneRow;
             _buttonsPanel.DeleteBtn.Click += DeleteRow;
             SelectedChanged += ButtonsControl;
+            _dataGridView.CellDoubleClick += EditRow;
         }
 
         public void UpdateName(string newName)
@@ -104,6 +105,9 @@ namespace DBF_Editor
 
         private void EditRow(object sender, EventArgs e)
         {
+            if (_dataGridView.SelectedRows.Count == 0)
+                return;
+
             _dataGridView.SelectionChanged -= SelectRow;
             DataRow _rowForEdit = _dataTable.Rows[_dataGridView.SelectedRows[0].Index];
 

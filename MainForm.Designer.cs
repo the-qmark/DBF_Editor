@@ -112,9 +112,9 @@ namespace DBF_Editor
             this.statusStrip.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip.Location = new System.Drawing.Point(0, 722);
+            this.statusStrip.Location = new System.Drawing.Point(0, 719);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1107, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1234, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -140,7 +140,7 @@ namespace DBF_Editor
             this.сервисToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(1107, 27);
+            this.mainMenuStrip.Size = new System.Drawing.Size(1234, 27);
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -245,8 +245,8 @@ namespace DBF_Editor
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView2);
             this.mainSplitContainer.Panel2.Controls.Add(this.infoPanel2);
             this.mainSplitContainer.Panel2.Controls.Add(this.buttonsPanel2);
-            this.mainSplitContainer.Size = new System.Drawing.Size(1107, 695);
-            this.mainSplitContainer.SplitterDistance = 542;
+            this.mainSplitContainer.Size = new System.Drawing.Size(1234, 692);
+            this.mainSplitContainer.SplitterDistance = 604;
             this.mainSplitContainer.SplitterWidth = 10;
             this.mainSplitContainer.TabIndex = 1;
             // 
@@ -255,7 +255,7 @@ namespace DBF_Editor
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
@@ -266,7 +266,7 @@ namespace DBF_Editor
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(542, 509);
+            this.dataGridView1.Size = new System.Drawing.Size(604, 506);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
@@ -288,7 +288,7 @@ namespace DBF_Editor
             this.infoPanel1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoPanel1.Location = new System.Drawing.Point(0, 79);
             this.infoPanel1.Name = "infoPanel1";
-            this.infoPanel1.Size = new System.Drawing.Size(542, 107);
+            this.infoPanel1.Size = new System.Drawing.Size(604, 107);
             this.infoPanel1.TabIndex = 1;
             // 
             // selectedSumAndRowsLabel1
@@ -375,7 +375,7 @@ namespace DBF_Editor
             this.buttonsPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonsPanel1.Location = new System.Drawing.Point(0, 0);
             this.buttonsPanel1.Name = "buttonsPanel1";
-            this.buttonsPanel1.Size = new System.Drawing.Size(542, 79);
+            this.buttonsPanel1.Size = new System.Drawing.Size(604, 79);
             this.buttonsPanel1.TabIndex = 0;
             // 
             // toolStrip1
@@ -388,7 +388,7 @@ namespace DBF_Editor
             this.deleteButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(542, 79);
+            this.toolStrip1.Size = new System.Drawing.Size(604, 79);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -450,7 +450,7 @@ namespace DBF_Editor
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 163);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(555, 532);
+            this.dataGridView2.Size = new System.Drawing.Size(620, 529);
             this.dataGridView2.TabIndex = 3;
             // 
             // infoPanel2
@@ -468,7 +468,7 @@ namespace DBF_Editor
             this.infoPanel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoPanel2.Location = new System.Drawing.Point(0, 50);
             this.infoPanel2.Name = "infoPanel2";
-            this.infoPanel2.Size = new System.Drawing.Size(555, 113);
+            this.infoPanel2.Size = new System.Drawing.Size(620, 113);
             this.infoPanel2.TabIndex = 2;
             // 
             // label8
@@ -561,7 +561,7 @@ namespace DBF_Editor
             this.buttonsPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonsPanel2.Location = new System.Drawing.Point(0, 0);
             this.buttonsPanel2.Name = "buttonsPanel2";
-            this.buttonsPanel2.Size = new System.Drawing.Size(555, 50);
+            this.buttonsPanel2.Size = new System.Drawing.Size(620, 50);
             this.buttonsPanel2.TabIndex = 1;
             // 
             // button5
@@ -612,7 +612,7 @@ namespace DBF_Editor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 744);
+            this.ClientSize = new System.Drawing.Size(1234, 741);
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.mainMenuStrip);
             this.Controls.Add(this.statusStrip);
