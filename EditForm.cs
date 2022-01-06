@@ -80,7 +80,7 @@ namespace DBF_Editor
             if (!Decimal.TryParse(text, out decimal sum))
                 return false;
 
-            if (text.IndexOf("0") == 0)
+            if (text.IndexOf("0") == 0 && text.IndexOf(".") != 1)
                 return false;
 
             if (!text.Contains("."))

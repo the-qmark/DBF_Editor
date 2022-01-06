@@ -41,6 +41,7 @@ namespace DBF_Editor
             _buttonsPanel1 = new ButtonsPanel(moveButton1, editButton1, cloneButton1, deleteButton1);
             _table1 = new Table(_buttonsPanel1, dataGridView1);
             _infoPanel1 = new InfoPanel(nameTextBox1, totalSumLabel1, totalRowsLabel1, selectedSumAndRowsLabel1, _table1);
+
         }
 
         private void открытьdbfToolStripMenuItem_Click(object sender, EventArgs e)

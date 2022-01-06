@@ -10,7 +10,6 @@ namespace DBF_Editor
 {
     class Table
     {
-        //public event Action<string> NameSet;
         public event Action TableChanged;
         public event Action SelectedChanged;
 
@@ -23,7 +22,6 @@ namespace DBF_Editor
         private string _name;
 
         private ButtonsPanel _buttonsPanel;
-        //private InfoPanel _infoPanel;
         private DataGridView _dataGridView;
 
         private DataTable _header = new DataTable();
@@ -59,7 +57,6 @@ namespace DBF_Editor
         {
             try
             {
-                _dataGridView.SelectionChanged -= SelectRow;
                 _dataTable?.Clear();
                 _header?.Clear();
                 _footer?.Clear();
@@ -79,7 +76,7 @@ namespace DBF_Editor
                 _dataTable.Rows[_dataTable.Rows.Count - 1].Delete(); // удаление ИТОГО
 
                 _dataGridView.DataSource = _dataTable;
-
+                _dataGridView.SelectionChanged += SelectRow;
                 AcceptChanges();
             }
             catch (Exception e)
@@ -92,9 +89,7 @@ namespace DBF_Editor
         private void AcceptChanges()
         {
             _dataTable?.AcceptChanges();
-            UpdateNumbering();
             ClearSelection();
-            _dataGridView.SelectionChanged += SelectRow;
             TableChanged?.Invoke();
         }
 
@@ -108,7 +103,6 @@ namespace DBF_Editor
             if (_dataGridView.SelectedRows.Count == 0)
                 return;
 
-            _dataGridView.SelectionChanged -= SelectRow;
             DataRow _rowForEdit = _dataTable.Rows[_dataGridView.SelectedRows[0].Index];
 
             EditForm _editForm = new EditForm(_rowForEdit);
@@ -132,9 +126,9 @@ namespace DBF_Editor
                     return;
                 }
 
-                _dataGridView.SelectionChanged -= SelectRow;
+                DataGridViewSelectedRowCollection _selectedRows = _dataGridView.SelectedRows;
 
-                foreach (DataGridViewRow row in _dataGridView.SelectedRows)
+                foreach (DataGridViewRow row in _selectedRows)
                 {
                     _dataTable.Rows.Remove(_dataTable.Rows[row.Index]);
                 }
@@ -144,6 +138,7 @@ namespace DBF_Editor
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка удаления строки", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
@@ -171,9 +166,13 @@ namespace DBF_Editor
                         break;
                     }
                 }
+                catch (DeletedRowInaccessibleException delRow)
+                {
+                    return;
+                }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Ошибка #1 " + _name + " . Строка№" + _dataTable.Rows[row.Index].Field<string>(0), exc.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ошибка #001 " + _name + " . Строка№" + _dataTable.Rows[row.Index].Field<string>(0), exc.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -234,6 +233,7 @@ namespace DBF_Editor
         {
             foreach (DataGridViewRow row in _dataGridView.SelectedRows)
                 row.Selected = false;
+            _dataGridView.ClearSelection();
             _selectedSum = 0;
             _selectedRows = 0;
             SelectedChanged?.Invoke();
