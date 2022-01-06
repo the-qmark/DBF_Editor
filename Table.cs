@@ -90,6 +90,7 @@ namespace DBF_Editor
         {
             _dataTable?.AcceptChanges();
             ClearSelection();
+            UpdateNumbering();
             TableChanged?.Invoke();
         }
 
