@@ -114,7 +114,30 @@ namespace DBF_Editor
 
         private void CloneRow(object sender, EventArgs e)
         {
-            MessageBox.Show("CLONE ROW" + _name);
+            if (_dataGridView.SelectedRows.Count == 0)
+                return;
+
+            DataRow _originalRow = _dataTable.Rows[_dataGridView.SelectedRows[0].Index];
+            //_dataTable.ImportRow(_originalRow);
+            //DataRow _cloneRow = _dataTable.Rows[_dataTable.Rows.Count-1];
+
+            DataRow _cloneRow = _dataTable.NewRow();
+            _dataTable.Rows.Add(_cloneRow);
+
+            CloneForm _cloneForm = new CloneForm(_originalRow, _cloneRow);
+            _cloneForm.ShowDialog();
+
+            if (_cloneForm.DialogResult == DialogResult.OK)
+            {
+                //*** settings
+            }
+            else
+            {
+                //MessageBox.Show("NOT OK");
+                _dataTable.Rows.Remove(_cloneRow);
+            }
+
+            AcceptChanges();
         }
 
         private void DeleteRow(object sender, EventArgs e)

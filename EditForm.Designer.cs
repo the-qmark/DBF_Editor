@@ -136,7 +136,7 @@ namespace DBF_Editor
             this.newSumTextBox.Name = "newSumTextBox";
             this.newSumTextBox.Size = new System.Drawing.Size(229, 31);
             this.newSumTextBox.TabIndex = 1;
-            this.newSumTextBox.Text = "40817810611250108383";
+            this.newSumTextBox.Text = "0";
             this.newSumTextBox.TextChanged += new System.EventHandler(this.newSumTextBox_TextChanged);
             // 
             // newOtchTextBox
@@ -147,7 +147,7 @@ namespace DBF_Editor
             this.newOtchTextBox.Name = "newOtchTextBox";
             this.newOtchTextBox.Size = new System.Drawing.Size(229, 31);
             this.newOtchTextBox.TabIndex = 7;
-            this.newOtchTextBox.Text = "40817810611250108383";
+            this.newOtchTextBox.Text = "0";
             // 
             // newNameTextBox
             // 
@@ -157,7 +157,7 @@ namespace DBF_Editor
             this.newNameTextBox.Name = "newNameTextBox";
             this.newNameTextBox.Size = new System.Drawing.Size(229, 31);
             this.newNameTextBox.TabIndex = 6;
-            this.newNameTextBox.Text = "40817810611250108383";
+            this.newNameTextBox.Text = "0";
             // 
             // newFamTextBox
             // 
@@ -167,7 +167,7 @@ namespace DBF_Editor
             this.newFamTextBox.Name = "newFamTextBox";
             this.newFamTextBox.Size = new System.Drawing.Size(229, 31);
             this.newFamTextBox.TabIndex = 5;
-            this.newFamTextBox.Text = "40817810611250108383";
+            this.newFamTextBox.Text = "0";
             // 
             // newBankTextBox
             // 
@@ -177,7 +177,7 @@ namespace DBF_Editor
             this.newBankTextBox.Name = "newBankTextBox";
             this.newBankTextBox.Size = new System.Drawing.Size(229, 31);
             this.newBankTextBox.TabIndex = 4;
-            this.newBankTextBox.Text = "40817810611250108383";
+            this.newBankTextBox.Text = "0";
             // 
             // label2
             // 

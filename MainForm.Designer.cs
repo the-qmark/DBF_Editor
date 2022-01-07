@@ -198,14 +198,14 @@ namespace DBF_Editor
             // 
             this.настройкиToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.settings;
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.about;
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // RightToolStripPanel
@@ -432,6 +432,7 @@ namespace DBF_Editor
             this.cloneButton1.Size = new System.Drawing.Size(72, 76);
             this.cloneButton1.Text = "toolStripButton1";
             this.cloneButton1.ToolTipText = "Клонировать";
+            this.cloneButton1.Click += new System.EventHandler(this.cloneButton1_Click);
             // 
             // deleteButton1
             // 

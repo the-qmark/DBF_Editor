@@ -114,5 +114,10 @@ namespace DBF_Editor
         {
 
         }
+
+        private void cloneButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
