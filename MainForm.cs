@@ -119,5 +119,22 @@ namespace DBF_Editor
         {
 
         }
+
+        private void сохранитьВdbfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.FileName = $"DBF_Editor_{_table1.Name}";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            string _pathToSave = saveFileDialog.FileName;
+
+            toolStripStatusLabel1.Text = _pathToSave;
+
+            SaveForm _saveForm = new SaveForm(_table1, _pathToSave, false);
+            _saveForm.ShowDialog();
+
+
+        }
     }
 }

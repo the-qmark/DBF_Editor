@@ -8,8 +8,13 @@ using System.Windows.Forms;
 
 namespace DBF_Editor
 {
-    class Table
+    public class Table
     {
+        public bool SaveResult;
+
+
+        
+        
         public event Action TableChanged;
         public event Action SelectedChanged;
 
@@ -18,6 +23,12 @@ namespace DBF_Editor
         public int RowsCount { get => UpdateRowsCount(); }
         public decimal SeletedSum { get => _selectedSum; }
         public decimal SelectedRows { get => _selectedRows; }
+        public string Name { get => _name; }
+
+
+
+        public DataTable Header { get => _header; }
+        public DataTable Footer { get => _footer;  }
 
         private string _name;
 

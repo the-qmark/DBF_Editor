@@ -20,3 +20,4 @@ C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.exe
 C:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.pdb
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.EditForm.resources
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.CloneForm.resources
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.SaveForm.resources

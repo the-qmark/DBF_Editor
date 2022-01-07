@@ -80,6 +80,7 @@ namespace DBF_Editor
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.statusStrip.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
@@ -98,6 +99,10 @@ namespace DBF_Editor
             // openFileDialog
             // 
             this.openFileDialog.Filter = "Реестр DBF |*.dbf";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Directory | directory";
             // 
             // BottomToolStripPanel
             // 
@@ -165,11 +170,11 @@ namespace DBF_Editor
             // 
             // сохранитьВdbfToolStripMenuItem
             // 
-            this.сохранитьВdbfToolStripMenuItem.Enabled = false;
             this.сохранитьВdbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveDBF;
             this.сохранитьВdbfToolStripMenuItem.Name = "сохранитьВdbfToolStripMenuItem";
             this.сохранитьВdbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
             this.сохранитьВdbfToolStripMenuItem.Text = "Сохранить в [dbf]";
+            this.сохранитьВdbfToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВdbfToolStripMenuItem_Click);
             // 
             // сохранитьВdbfcsvToolStripMenuItem
             // 
@@ -701,6 +706,7 @@ namespace DBF_Editor
         private System.Windows.Forms.ToolStripButton editButton1;
         private System.Windows.Forms.ToolStripButton cloneButton1;
         private System.Windows.Forms.ToolStripButton deleteButton1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
 

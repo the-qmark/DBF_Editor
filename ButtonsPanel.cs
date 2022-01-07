@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace DBF_Editor
 {
-    class ButtonsPanel
+    public class ButtonsPanel
     {
         public ToolStripButton MoveBtn;
         public ToolStripButton EditBtn;

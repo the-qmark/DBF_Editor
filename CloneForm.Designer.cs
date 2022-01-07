@@ -245,6 +245,7 @@ namespace DBF_Editor
             this.Controls.Add(this.originalBankTextBox);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CloneForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
