@@ -169,6 +169,8 @@ namespace DBF_Editor
                 }
                 catch (DeletedRowInaccessibleException delRow)
                 {
+                    _selectedSum = 0;
+                    _selectedRows = 0;
                     return;
                 }
                 catch (Exception exc)
@@ -210,7 +212,7 @@ namespace DBF_Editor
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Ошибка вычисления суммы в таблице " + _name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка вычисления суммы в таблице " + e.Message, "Ошибка вычисления суммы в таблице", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
         }

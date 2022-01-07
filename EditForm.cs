@@ -65,7 +65,7 @@ namespace DBF_Editor
             {
                 saveButton.Enabled = false;
                 saveButton.BackColor = Color.Gray;
-                newSumTextBox.BackColor = Color.Red;
+                newSumTextBox.BackColor = Color.IndianRed;
                 toolTip1.SetToolTip(newSumTextBox, "Должны использоваться только цифры, разделитель \"точка\" и ДВЕ цифры после него");
             }
         }

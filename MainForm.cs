@@ -41,7 +41,6 @@ namespace DBF_Editor
             _buttonsPanel1 = new ButtonsPanel(moveButton1, editButton1, cloneButton1, deleteButton1);
             _table1 = new Table(_buttonsPanel1, dataGridView1);
             _infoPanel1 = new InfoPanel(nameTextBox1, totalSumLabel1, totalRowsLabel1, selectedSumAndRowsLabel1, _table1);
-
         }
 
         private void открытьdbfToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,9 +54,9 @@ namespace DBF_Editor
             DBFConnection _dbfConnection = new DBFConnection(_fileName, _filePath);
             DataTable _tempTable = _dbfConnection.GetDataTable();
 
-            if (CheckValid(_tempTable) == false)
+            if (CheckValid(_tempTable, out string _errorMessage) == false)
             {
-                MessageBox.Show($"Ошибка в структуре таблицы", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка при обработке таблицы: {_errorMessage}", "Ошибка при обработке таблицы", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -65,16 +64,28 @@ namespace DBF_Editor
             _infoPanel1.NameTextBox.Text = _fileName.Length > 3 ?  _fileName.Substring(_fileName.Length - 3) : _fileName; // ** settings
         }
 
-        private bool CheckValid(DataTable dt)
+        private bool CheckValid(DataTable dt, out string errorMessage)
         {
+            errorMessage = "";
+
             if (dt == null)
+            {
+                errorMessage = "Таблица равна NULL";
                 return false;
+            }
 
             if (dt.Rows.Count < 8 || dt.Columns.Count < 7)
+            {
+                errorMessage = "Неверная структура таблицы. Должно быть минимум 8 строк и 7 столбцов";
                 return false;
+            }
 
-            if (!Decimal.TryParse(dt.Rows[6].Field<string>(5), out decimal _step))
-                return false;
+            for (int i = 6; i < dt.Rows.Count - 1; i++)
+                if (!Decimal.TryParse(dt.Rows[i].Field<string>(5), out decimal _step))
+                {
+                    errorMessage = $"Строка {i-5} содержит неверный формат суммы";
+                    return false;
+                }
 
             return true;
         }

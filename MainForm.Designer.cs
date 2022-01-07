@@ -165,6 +165,7 @@ namespace DBF_Editor
             // 
             // сохранитьВdbfToolStripMenuItem
             // 
+            this.сохранитьВdbfToolStripMenuItem.Enabled = false;
             this.сохранитьВdbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveDBF;
             this.сохранитьВdbfToolStripMenuItem.Name = "сохранитьВdbfToolStripMenuItem";
             this.сохранитьВdbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
@@ -172,6 +173,7 @@ namespace DBF_Editor
             // 
             // сохранитьВdbfcsvToolStripMenuItem
             // 
+            this.сохранитьВdbfcsvToolStripMenuItem.Enabled = false;
             this.сохранитьВdbfcsvToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveCSV;
             this.сохранитьВdbfcsvToolStripMenuItem.Name = "сохранитьВdbfcsvToolStripMenuItem";
             this.сохранитьВdbfcsvToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
@@ -196,14 +198,14 @@ namespace DBF_Editor
             // 
             this.настройкиToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.settings;
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.about;
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // RightToolStripPanel
@@ -353,7 +355,7 @@ namespace DBF_Editor
             this.nameTextBox1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameTextBox1.Location = new System.Drawing.Point(123, 6);
             this.nameTextBox1.Name = "nameTextBox1";
-            this.nameTextBox1.Size = new System.Drawing.Size(91, 30);
+            this.nameTextBox1.Size = new System.Drawing.Size(116, 30);
             this.nameTextBox1.TabIndex = 1;
             this.nameTextBox1.TextChanged += new System.EventHandler(this.nameTextBox1_TextChanged);
             // 

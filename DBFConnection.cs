@@ -45,7 +45,7 @@ namespace DBF_Editor
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Ошибка при чтении файла {_filePath}\\{_fileName}", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка при чтении файла {_filePath}\\{_fileName}. Возможно в запросе содержатся неподдерживаемые спец.символы или файл не существует", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
