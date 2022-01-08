@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -24,8 +25,6 @@ namespace DBF_Editor
         private ButtonsPanel _buttonsPanel1;
         private InfoPanel _infoPanel1;
         private Table _table1;
-       
-
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -62,6 +61,9 @@ namespace DBF_Editor
 
             _table1.GetDataFrom(_tempTable);
             _infoPanel1.NameTextBox.Text = _fileName.Length > 3 ?  _fileName.Substring(_fileName.Length - 3) : _fileName; // ** settings
+
+            saveTodbfToolStripMenuItem.Enabled = true;
+            saveTodbfcsvToolStripMenuItem.Enabled = true;
         }
 
         private bool CheckValid(DataTable dt, out string errorMessage)
@@ -90,38 +92,24 @@ namespace DBF_Editor
             return true;
         }
 
-        private void nameTextBox1_TextChanged(object sender, EventArgs e)
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
-        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void saveTodbfToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            SaveDbf(false);
         }
 
-        private void dataGridView1_Enter(object sender, EventArgs e)
+        private void saveTodbfcsvToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            SaveDbf(true);
         }
 
-        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        private void SaveDbf(bool isCSV)
         {
 
-        }
-
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cloneButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void сохранитьВdbfToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             saveFileDialog.FileName = $"DBF_Editor_{_table1.Name}";
 
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
@@ -129,11 +117,21 @@ namespace DBF_Editor
 
             string _pathToSave = saveFileDialog.FileName;
 
-            toolStripStatusLabel1.Text = _pathToSave;
+            if (Directory.Exists(_pathToSave))
+                Directory.Delete(_pathToSave);
+            else
+                Directory.CreateDirectory(_pathToSave);
 
-            SaveForm _saveForm = new SaveForm(_table1, _pathToSave, false);
+
+            SaveForm _saveForm = new SaveForm(_table1, _pathToSave, isCSV);
             _saveForm.ShowDialog();
 
+            if (_table1.SaveResult)
+            {
+                toolStripStatusLabel1.Text = $"Файл сохранен {_pathToSave}";
+                Process.Start("explorer.exe", _pathToSave);
+
+            }
 
         }
     }

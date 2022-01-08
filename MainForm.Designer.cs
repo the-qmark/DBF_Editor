@@ -38,9 +38,9 @@ namespace DBF_Editor
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьdbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьВdbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьВdbfcsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opendbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveTodbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveTodbfcsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,43 +152,46 @@ namespace DBF_Editor
             // файлToolStripMenuItem
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.открытьdbfToolStripMenuItem,
-            this.сохранитьВdbfToolStripMenuItem,
-            this.сохранитьВdbfcsvToolStripMenuItem,
+            this.opendbfToolStripMenuItem,
+            this.saveTodbfToolStripMenuItem,
+            this.saveTodbfcsvToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
-            // открытьdbfToolStripMenuItem
+            // opendbfToolStripMenuItem
             // 
-            this.открытьdbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.open;
-            this.открытьdbfToolStripMenuItem.Name = "открытьdbfToolStripMenuItem";
-            this.открытьdbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
-            this.открытьdbfToolStripMenuItem.Text = "Открыть [dbf]";
-            this.открытьdbfToolStripMenuItem.Click += new System.EventHandler(this.открытьdbfToolStripMenuItem_Click);
+            this.opendbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.open;
+            this.opendbfToolStripMenuItem.Name = "opendbfToolStripMenuItem";
+            this.opendbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
+            this.opendbfToolStripMenuItem.Text = "Открыть [dbf]";
+            this.opendbfToolStripMenuItem.Click += new System.EventHandler(this.открытьdbfToolStripMenuItem_Click);
             // 
-            // сохранитьВdbfToolStripMenuItem
+            // saveTodbfToolStripMenuItem
             // 
-            this.сохранитьВdbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveDBF;
-            this.сохранитьВdbfToolStripMenuItem.Name = "сохранитьВdbfToolStripMenuItem";
-            this.сохранитьВdbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
-            this.сохранитьВdbfToolStripMenuItem.Text = "Сохранить в [dbf]";
-            this.сохранитьВdbfToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВdbfToolStripMenuItem_Click);
+            this.saveTodbfToolStripMenuItem.Enabled = false;
+            this.saveTodbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveDBF;
+            this.saveTodbfToolStripMenuItem.Name = "saveTodbfToolStripMenuItem";
+            this.saveTodbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
+            this.saveTodbfToolStripMenuItem.Text = "Сохранить в [dbf]";
+            this.saveTodbfToolStripMenuItem.Click += new System.EventHandler(this.saveTodbfToolStripMenuItem_Click);
             // 
-            // сохранитьВdbfcsvToolStripMenuItem
+            // saveTodbfcsvToolStripMenuItem
             // 
-            this.сохранитьВdbfcsvToolStripMenuItem.Enabled = false;
-            this.сохранитьВdbfcsvToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveCSV;
-            this.сохранитьВdbfcsvToolStripMenuItem.Name = "сохранитьВdbfcsvToolStripMenuItem";
-            this.сохранитьВdbfcsvToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
-            this.сохранитьВdbfcsvToolStripMenuItem.Text = "Сохранить в [dbf + csv]";
+            this.saveTodbfcsvToolStripMenuItem.Enabled = false;
+            this.saveTodbfcsvToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveCSV;
+            this.saveTodbfcsvToolStripMenuItem.Name = "saveTodbfcsvToolStripMenuItem";
+            this.saveTodbfcsvToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
+            this.saveTodbfcsvToolStripMenuItem.Text = "Сохранить в [dbf + csv]";
+            this.saveTodbfcsvToolStripMenuItem.Click += new System.EventHandler(this.saveTodbfcsvToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // сервисToolStripMenuItem
             // 
@@ -275,10 +278,6 @@ namespace DBF_Editor
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(604, 506);
             this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            this.dataGridView1.Enter += new System.EventHandler(this.dataGridView1_Enter);
-            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // infoPanel1
             // 
@@ -362,7 +361,6 @@ namespace DBF_Editor
             this.nameTextBox1.Name = "nameTextBox1";
             this.nameTextBox1.Size = new System.Drawing.Size(116, 30);
             this.nameTextBox1.TabIndex = 1;
-            this.nameTextBox1.TextChanged += new System.EventHandler(this.nameTextBox1_TextChanged);
             // 
             // label1
             // 
@@ -437,7 +435,6 @@ namespace DBF_Editor
             this.cloneButton1.Size = new System.Drawing.Size(72, 76);
             this.cloneButton1.Text = "toolStripButton1";
             this.cloneButton1.ToolTipText = "Клонировать";
-            this.cloneButton1.Click += new System.EventHandler(this.cloneButton1_Click);
             // 
             // deleteButton1
             // 
@@ -664,9 +661,9 @@ namespace DBF_Editor
         private System.Windows.Forms.ToolStripPanel TopToolStripPanel;
         private System.Windows.Forms.MenuStrip mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem открытьdbfToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьВdbfToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьВdbfcsvToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opendbfToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveTodbfToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveTodbfcsvToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
