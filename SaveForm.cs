@@ -155,7 +155,7 @@ namespace DBF_Editor
             {
                 table.SaveResult = false;
                 if (Directory.Exists(_path))
-                    Directory.Delete(_path);
+                    Directory.Delete(_path, true);
                 return false;
             }
             catch (Exception e)
@@ -163,7 +163,7 @@ namespace DBF_Editor
                 MessageBox.Show("Ошибка сохранения.", e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 table.SaveResult = false;
                 if (Directory.Exists(_path))
-                    Directory.Delete(_path);
+                    Directory.Delete(_path, true);
                 return false;
             }
 

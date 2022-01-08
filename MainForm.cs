@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBF_Editor.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,9 +23,9 @@ namespace DBF_Editor
             InitializeComponent();
         }
 
-        private ButtonsPanel _buttonsPanel1;
-        private InfoPanel _infoPanel1;
-        private Table _table1;
+        private ButtonsPanel _buttonsPanel1, _buttonsPanel2;
+        private InfoPanel _infoPanel1, _infoPanel2;
+        private Table _table1, _table2;
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -40,6 +41,10 @@ namespace DBF_Editor
             _buttonsPanel1 = new ButtonsPanel(moveButton1, editButton1, cloneButton1, deleteButton1);
             _table1 = new Table(_buttonsPanel1, dataGridView1);
             _infoPanel1 = new InfoPanel(nameTextBox1, totalSumLabel1, totalRowsLabel1, selectedSumAndRowsLabel1, _table1);
+
+            _buttonsPanel2 = new ButtonsPanel(moveButton2, editButton2, cloneButton2, deleteButton2);
+            _table2 = new Table(_buttonsPanel2, dataGridView2);
+            _infoPanel2 = new InfoPanel(nameTextBox2, totalSumLabel2, totalRowsLabel2, selectedSumAndRowsLabel2, _table2);
         }
 
         private void открытьdbfToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,7 +65,17 @@ namespace DBF_Editor
             }
 
             _table1.GetDataFrom(_tempTable);
-            _infoPanel1.NameTextBox.Text = _fileName.Length > 3 ?  _fileName.Substring(_fileName.Length - 3) : _fileName; // ** settings
+            _table2.GetDataFrom(_tempTable);
+
+            _table1.OtherTable = _table2;
+            _table2.OtherTable = _table1;
+
+            _table2.DataTable.Clear();
+
+            string _shortName = _fileName.Length > 3 ? _fileName.Substring(_fileName.Length - 3) : _fileName;
+
+            _infoPanel1.NameTextBox.Text = _shortName; // ** settings
+            _infoPanel2.NameTextBox.Text = _shortName + "_copy"; // ** settings
 
             saveTodbfToolStripMenuItem.Enabled = true;
             saveTodbfcsvToolStripMenuItem.Enabled = true;
@@ -110,7 +125,7 @@ namespace DBF_Editor
         private void SaveDbf(bool isCSV)
         {
 
-            saveFileDialog.FileName = $"DBF_Editor_{_table1.Name}";
+            saveFileDialog.FileName = $"DBF_Editor_{_table1.Name}_{_table2.Name}";
 
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -128,10 +143,30 @@ namespace DBF_Editor
 
             if (_table1.SaveResult)
             {
-                toolStripStatusLabel1.Text = $"Файл сохранен {_pathToSave}";
-                Process.Start("explorer.exe", _pathToSave);
+                _saveForm = new SaveForm(_table2, _pathToSave, isCSV);
+                _saveForm.ShowDialog();
 
+                if (_table2.SaveResult)
+                {
+                    toolStripStatusLabel1.Text = $"Файл сохранен {_pathToSave}";
+                    Process.Start("explorer.exe", _pathToSave);
+                }
             }
+
+        }
+
+        private void infoPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+        }
+
+        private void сплошноеВыделениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
         }
     }

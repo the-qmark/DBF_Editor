@@ -65,22 +65,24 @@ namespace DBF_Editor
             this.editButton1 = new System.Windows.Forms.ToolStripButton();
             this.cloneButton1 = new System.Windows.Forms.ToolStripButton();
             this.deleteButton1 = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.moveButton2 = new System.Windows.Forms.ToolStripButton();
+            this.editButton2 = new System.Windows.Forms.ToolStripButton();
+            this.cloneButton2 = new System.Windows.Forms.ToolStripButton();
+            this.deleteButton2 = new System.Windows.Forms.ToolStripButton();
             this.infoPanel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.selectedSumAndRowsLabel2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.totalRowsLabel2 = new System.Windows.Forms.Label();
+            this.totalSumLabel2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.nameTextBox2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.buttonsPanel2 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.сплошноеВыделениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.statusStrip.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
@@ -91,9 +93,9 @@ namespace DBF_Editor
             this.infoPanel1.SuspendLayout();
             this.buttonsPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.toolStrip2.SuspendLayout();
             this.infoPanel2.SuspendLayout();
-            this.buttonsPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -126,8 +128,7 @@ namespace DBF_Editor
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(126, 17);
-            this.toolStripStatusLabel1.Text = "Был открыт файл \"...\"";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // TopToolStripPanel
             // 
@@ -196,6 +197,8 @@ namespace DBF_Editor
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сплошноеВыделениеToolStripMenuItem,
+            this.toolStripSeparator1,
             this.настройкиToolStripMenuItem,
             this.оПрограммеToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
@@ -206,14 +209,14 @@ namespace DBF_Editor
             // 
             this.настройкиToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.settings;
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
             this.настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.about;
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // RightToolStripPanel
@@ -254,7 +257,7 @@ namespace DBF_Editor
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView2);
             this.mainSplitContainer.Panel2.Controls.Add(this.infoPanel2);
-            this.mainSplitContainer.Panel2.Controls.Add(this.buttonsPanel2);
+            this.mainSplitContainer.Panel2.Controls.Add(this.toolStrip2);
             this.mainSplitContainer.Size = new System.Drawing.Size(1234, 692);
             this.mainSplitContainer.SplitterDistance = 604;
             this.mainSplitContainer.SplitterWidth = 10;
@@ -266,9 +269,8 @@ namespace DBF_Editor
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 186);
             this.dataGridView1.Name = "dataGridView1";
@@ -278,6 +280,7 @@ namespace DBF_Editor
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(604, 506);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // infoPanel1
             // 
@@ -296,6 +299,7 @@ namespace DBF_Editor
             this.infoPanel1.Name = "infoPanel1";
             this.infoPanel1.Size = new System.Drawing.Size(604, 107);
             this.infoPanel1.TabIndex = 1;
+            this.infoPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.infoPanel1_Paint);
             // 
             // selectedSumAndRowsLabel1
             // 
@@ -303,8 +307,9 @@ namespace DBF_Editor
             this.selectedSumAndRowsLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.selectedSumAndRowsLabel1.Location = new System.Drawing.Point(119, 78);
             this.selectedSumAndRowsLabel1.Name = "selectedSumAndRowsLabel1";
-            this.selectedSumAndRowsLabel1.Size = new System.Drawing.Size(0, 23);
+            this.selectedSumAndRowsLabel1.Size = new System.Drawing.Size(71, 23);
             this.selectedSumAndRowsLabel1.TabIndex = 7;
+            this.selectedSumAndRowsLabel1.Text = "0.00 (0)";
             // 
             // label6
             // 
@@ -322,8 +327,9 @@ namespace DBF_Editor
             this.totalRowsLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.totalRowsLabel1.Location = new System.Drawing.Point(119, 58);
             this.totalRowsLabel1.Name = "totalRowsLabel1";
-            this.totalRowsLabel1.Size = new System.Drawing.Size(0, 23);
+            this.totalRowsLabel1.Size = new System.Drawing.Size(20, 23);
             this.totalRowsLabel1.TabIndex = 5;
+            this.totalRowsLabel1.Text = "0";
             // 
             // totalSumLabel1
             // 
@@ -331,8 +337,9 @@ namespace DBF_Editor
             this.totalSumLabel1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.totalSumLabel1.Location = new System.Drawing.Point(119, 38);
             this.totalSumLabel1.Name = "totalSumLabel1";
-            this.totalSumLabel1.Size = new System.Drawing.Size(0, 23);
+            this.totalSumLabel1.Size = new System.Drawing.Size(45, 23);
             this.totalSumLabel1.TabIndex = 4;
+            this.totalSumLabel1.Text = "0.00";
             // 
             // label3
             // 
@@ -449,169 +456,198 @@ namespace DBF_Editor
             this.deleteButton1.Text = "toolStripButton1";
             this.deleteButton1.ToolTipText = "Удалить";
             // 
-            // dataGridView2
+            // toolStrip2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 163);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(620, 529);
-            this.dataGridView2.TabIndex = 3;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.moveButton2,
+            this.editButton2,
+            this.cloneButton2,
+            this.deleteButton2});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(620, 79);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // moveButton2
+            // 
+            this.moveButton2.AutoSize = false;
+            this.moveButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.moveButton2.Enabled = false;
+            this.moveButton2.Image = global::DBF_Editor.Properties.Resources.moveToLeft;
+            this.moveButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.moveButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.moveButton2.Name = "moveButton2";
+            this.moveButton2.Size = new System.Drawing.Size(72, 76);
+            this.moveButton2.Text = "toolStripButton1";
+            this.moveButton2.ToolTipText = "Переместить";
+            // 
+            // editButton2
+            // 
+            this.editButton2.AutoSize = false;
+            this.editButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editButton2.Enabled = false;
+            this.editButton2.Image = global::DBF_Editor.Properties.Resources.edit;
+            this.editButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editButton2.Name = "editButton2";
+            this.editButton2.Size = new System.Drawing.Size(72, 76);
+            this.editButton2.Text = "toolStripButton1";
+            this.editButton2.ToolTipText = "Редактировать";
+            // 
+            // cloneButton2
+            // 
+            this.cloneButton2.AutoSize = false;
+            this.cloneButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cloneButton2.Enabled = false;
+            this.cloneButton2.Image = global::DBF_Editor.Properties.Resources.clone;
+            this.cloneButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cloneButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cloneButton2.Name = "cloneButton2";
+            this.cloneButton2.Size = new System.Drawing.Size(72, 76);
+            this.cloneButton2.Text = "toolStripButton1";
+            this.cloneButton2.ToolTipText = "Клонировать";
+            // 
+            // deleteButton2
+            // 
+            this.deleteButton2.AutoSize = false;
+            this.deleteButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteButton2.Enabled = false;
+            this.deleteButton2.Image = global::DBF_Editor.Properties.Resources.delete;
+            this.deleteButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteButton2.Name = "deleteButton2";
+            this.deleteButton2.Size = new System.Drawing.Size(72, 76);
+            this.deleteButton2.Text = "toolStripButton1";
+            this.deleteButton2.ToolTipText = "Удалить";
             // 
             // infoPanel2
             // 
-            this.infoPanel2.BackColor = System.Drawing.SystemColors.Info;
-            this.infoPanel2.Controls.Add(this.label8);
+            this.infoPanel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.infoPanel2.Controls.Add(this.selectedSumAndRowsLabel2);
+            this.infoPanel2.Controls.Add(this.label5);
+            this.infoPanel2.Controls.Add(this.totalRowsLabel2);
+            this.infoPanel2.Controls.Add(this.totalSumLabel2);
             this.infoPanel2.Controls.Add(this.label9);
             this.infoPanel2.Controls.Add(this.label10);
+            this.infoPanel2.Controls.Add(this.nameTextBox2);
             this.infoPanel2.Controls.Add(this.label11);
-            this.infoPanel2.Controls.Add(this.label12);
-            this.infoPanel2.Controls.Add(this.label13);
-            this.infoPanel2.Controls.Add(this.textBox2);
-            this.infoPanel2.Controls.Add(this.label14);
             this.infoPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.infoPanel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.infoPanel2.Location = new System.Drawing.Point(0, 50);
+            this.infoPanel2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.infoPanel2.Location = new System.Drawing.Point(0, 79);
             this.infoPanel2.Name = "infoPanel2";
-            this.infoPanel2.Size = new System.Drawing.Size(620, 113);
+            this.infoPanel2.Size = new System.Drawing.Size(620, 107);
             this.infoPanel2.TabIndex = 2;
             // 
-            // label8
+            // selectedSumAndRowsLabel2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(119, 78);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 23);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "45684 (6)";
+            this.selectedSumAndRowsLabel2.AutoSize = true;
+            this.selectedSumAndRowsLabel2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.selectedSumAndRowsLabel2.Location = new System.Drawing.Point(119, 78);
+            this.selectedSumAndRowsLabel2.Name = "selectedSumAndRowsLabel2";
+            this.selectedSumAndRowsLabel2.Size = new System.Drawing.Size(71, 23);
+            this.selectedSumAndRowsLabel2.TabIndex = 7;
+            this.selectedSumAndRowsLabel2.Text = "0.00 (0)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(4, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 23);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "ВЫДЕЛЕНО:";
+            // 
+            // totalRowsLabel2
+            // 
+            this.totalRowsLabel2.AutoSize = true;
+            this.totalRowsLabel2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.totalRowsLabel2.Location = new System.Drawing.Point(119, 58);
+            this.totalRowsLabel2.Name = "totalRowsLabel2";
+            this.totalRowsLabel2.Size = new System.Drawing.Size(20, 23);
+            this.totalRowsLabel2.TabIndex = 5;
+            this.totalRowsLabel2.Text = "0";
+            // 
+            // totalSumLabel2
+            // 
+            this.totalSumLabel2.AutoSize = true;
+            this.totalSumLabel2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.totalSumLabel2.Location = new System.Drawing.Point(119, 38);
+            this.totalSumLabel2.Name = "totalSumLabel2";
+            this.totalSumLabel2.Size = new System.Drawing.Size(45, 23);
+            this.totalSumLabel2.TabIndex = 4;
+            this.totalSumLabel2.Text = "0.00";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(4, 78);
+            this.label9.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(4, 58);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(109, 23);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "ВЫДЕЛЕНО:";
+            this.label9.Size = new System.Drawing.Size(61, 23);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Строк:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(119, 58);
+            this.label10.Location = new System.Drawing.Point(4, 38);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 23);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "506";
+            this.label10.Size = new System.Drawing.Size(69, 23);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Сумма:";
+            // 
+            // nameTextBox2
+            // 
+            this.nameTextBox2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameTextBox2.Location = new System.Drawing.Point(123, 6);
+            this.nameTextBox2.Name = "nameTextBox2";
+            this.nameTextBox2.Size = new System.Drawing.Size(116, 30);
+            this.nameTextBox2.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(119, 38);
+            this.label11.Location = new System.Drawing.Point(4, 13);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 23);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "157684,04";
+            this.label11.Size = new System.Drawing.Size(91, 23);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Название:";
             // 
-            // label12
+            // сплошноеВыделениеToolStripMenuItem
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(4, 58);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 23);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Строк:";
+            this.сплошноеВыделениеToolStripMenuItem.CheckOnClick = true;
+            this.сплошноеВыделениеToolStripMenuItem.Name = "сплошноеВыделениеToolStripMenuItem";
+            this.сплошноеВыделениеToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
+            this.сплошноеВыделениеToolStripMenuItem.Text = "\"Сплошное\" выделение";
+            this.сплошноеВыделениеToolStripMenuItem.ToolTipText = "Автоматически будут выделяться все строки выше выбранной";
+            this.сплошноеВыделениеToolStripMenuItem.Click += new System.EventHandler(this.сплошноеВыделениеToolStripMenuItem_Click);
             // 
-            // label13
+            // toolStripSeparator1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(4, 38);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 23);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "Сумма:";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(239, 6);
             // 
-            // textBox2
+            // dataGridView2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(123, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(139, 30);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "123";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(4, 15);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 23);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Название:";
-            // 
-            // buttonsPanel2
-            // 
-            this.buttonsPanel2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonsPanel2.Controls.Add(this.button5);
-            this.buttonsPanel2.Controls.Add(this.button6);
-            this.buttonsPanel2.Controls.Add(this.button7);
-            this.buttonsPanel2.Controls.Add(this.button8);
-            this.buttonsPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonsPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonsPanel2.Location = new System.Drawing.Point(0, 0);
-            this.buttonsPanel2.Name = "buttonsPanel2";
-            this.buttonsPanel2.Size = new System.Drawing.Size(620, 50);
-            this.buttonsPanel2.TabIndex = 1;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.Window;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(141, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(40, 40);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "0";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.Window;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(95, 4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(40, 40);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "0";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.SystemColors.Window;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(49, 4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(40, 40);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "0";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.SystemColors.Window;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(3, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(40, 40);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "0";
-            this.button8.UseVisualStyleBackColor = false;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 186);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(620, 506);
+            this.dataGridView2.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -634,6 +670,7 @@ namespace DBF_Editor
             this.mainMenuStrip.PerformLayout();
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel2.ResumeLayout(false);
+            this.mainSplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -643,10 +680,11 @@ namespace DBF_Editor
             this.buttonsPanel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.infoPanel2.ResumeLayout(false);
             this.infoPanel2.PerformLayout();
-            this.buttonsPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -683,27 +721,29 @@ namespace DBF_Editor
         private System.Windows.Forms.TextBox nameTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel buttonsPanel1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Panel infoPanel2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel buttonsPanel2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton moveButton1;
         private System.Windows.Forms.ToolStripButton editButton1;
         private System.Windows.Forms.ToolStripButton cloneButton1;
         private System.Windows.Forms.ToolStripButton deleteButton1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.Panel infoPanel2;
+        private System.Windows.Forms.Label selectedSumAndRowsLabel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label totalRowsLabel2;
+        private System.Windows.Forms.Label totalSumLabel2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox nameTextBox2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton moveButton2;
+        private System.Windows.Forms.ToolStripButton editButton2;
+        private System.Windows.Forms.ToolStripButton cloneButton2;
+        private System.Windows.Forms.ToolStripButton deleteButton2;
+        private System.Windows.Forms.ToolStripMenuItem сплошноеВыделениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
 

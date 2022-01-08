@@ -10,13 +10,9 @@ namespace DBF_Editor
 {
     public class Table
     {
-        public bool SaveResult;
-
-
-        
-        
         public event Action TableChanged;
         public event Action SelectedChanged;
+        public bool SaveResult; 
 
         public DataTable DataTable { get => _dataTable; }
         public decimal TotalSum { get => UpdateTotal(); }
@@ -25,15 +21,16 @@ namespace DBF_Editor
         public decimal SelectedRows { get => _selectedRows; }
         public string Name { get => _name; }
 
-
-
         public DataTable Header { get => _header; }
         public DataTable Footer { get => _footer;  }
+        public Table OtherTable { get => _otherTable; set => _otherTable = value; }
 
         private string _name;
 
         private ButtonsPanel _buttonsPanel;
         private DataGridView _dataGridView;
+
+        private Table _otherTable;
 
         private DataTable _header = new DataTable();
         private DataTable _dataTable = new DataTable();
@@ -57,6 +54,25 @@ namespace DBF_Editor
             _buttonsPanel.DeleteBtn.Click += DeleteRow;
             SelectedChanged += ButtonsControl;
             _dataGridView.CellDoubleClick += EditRow;
+            _dataGridView.ColumnHeaderMouseClick += Sotring;
+        }
+
+        private void Sotring(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (_dataGridView.SortOrder.ToString() == "Descending") // Check if sorting is Descending
+            {
+                _dataTable.DefaultView.Sort = _dataGridView.SortedColumn.Name + " DESC"; // Get Sorted Column name and sort it in Descending order
+                
+            }
+            else
+            {
+                _dataTable.DefaultView.Sort = _dataGridView.SortedColumn.Name + " ASC";  // Otherwise sort it in Ascending order
+            }
+
+            _dataTable = _dataTable.DefaultView.ToTable(); // The Sorted View converted to DataTable and then assigned to table object.
+            _dataGridView.DataSource = _dataTable;
+
+            AcceptChanges();
         }
 
         public void UpdateName(string newName)
@@ -88,6 +104,7 @@ namespace DBF_Editor
 
                 _dataGridView.DataSource = _dataTable;
                 _dataGridView.SelectionChanged += SelectRow;
+
                 AcceptChanges();
             }
             catch (Exception e)
@@ -95,6 +112,14 @@ namespace DBF_Editor
                 MessageBox.Show(e.Message, "Ошибка заполнения таблицы", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        public void ClearTable()
+        {
+            _dataTable?.Clear();
+            _header?.Clear();
+            _footer?.Clear();
+            AcceptChanges();
         }
 
         private void AcceptChanges()
@@ -105,9 +130,49 @@ namespace DBF_Editor
             TableChanged?.Invoke();
         }
 
+
+        public bool ImportNewRow(DataGridViewSelectedRowCollection dataRowCollection)
+        {
+            try
+            {
+                foreach (DataGridViewRow row in dataRowCollection)
+                {
+                    _dataTable.ImportRow(_otherTable.DataTable.Rows[row.Index]);
+                }
+
+                AcceptChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка переноса");
+                return false;
+            }
+            
+        }
+
         private void MoveRows(object sender, EventArgs e)
         {
-            MessageBox.Show("MOVE ROWS " + _name);
+            DataGridViewSelectedRowCollection _selectedRows = _dataGridView.SelectedRows;
+
+            //DataRowCollection _dataRowCollection = _dataTable.Rows;
+            //_dataRowCollection.Clear();
+
+            //foreach (DataGridViewRow row in _selectedRows)
+            //{
+            //    _dataRowCollection.Add(_dataTable.Rows[row.Index]);
+            //}
+
+            if (_otherTable.ImportNewRow(_selectedRows))
+            {
+                foreach (DataGridViewRow row in _selectedRows)
+                {
+                    _dataTable.Rows.RemoveAt(row.Index);
+                }
+
+                AcceptChanges();
+            }
         }
 
         private void EditRow(object sender, EventArgs e)
