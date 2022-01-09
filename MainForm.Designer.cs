@@ -38,15 +38,10 @@ namespace DBF_Editor
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opendbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveTodbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveTodbfcsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.solidSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
@@ -63,10 +58,6 @@ namespace DBF_Editor
             this.label1 = new System.Windows.Forms.Label();
             this.buttonsPanel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.moveButton1 = new System.Windows.Forms.ToolStripButton();
-            this.editButton1 = new System.Windows.Forms.ToolStripButton();
-            this.cloneButton1 = new System.Windows.Forms.ToolStripButton();
-            this.deleteButton1 = new System.Windows.Forms.ToolStripButton();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.infoPanel2 = new System.Windows.Forms.Panel();
             this.selectedSumAndRowsLabel2 = new System.Windows.Forms.Label();
@@ -78,11 +69,20 @@ namespace DBF_Editor
             this.nameTextBox2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.moveButton1 = new System.Windows.Forms.ToolStripButton();
+            this.editButton1 = new System.Windows.Forms.ToolStripButton();
+            this.cloneButton1 = new System.Windows.Forms.ToolStripButton();
+            this.deleteButton1 = new System.Windows.Forms.ToolStripButton();
             this.moveButton2 = new System.Windows.Forms.ToolStripButton();
             this.editButton2 = new System.Windows.Forms.ToolStripButton();
             this.cloneButton2 = new System.Windows.Forms.ToolStripButton();
             this.deleteButton2 = new System.Windows.Forms.ToolStripButton();
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.opendbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveTodbfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveTodbfcsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
@@ -161,32 +161,6 @@ namespace DBF_Editor
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(57, 23);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
-            // opendbfToolStripMenuItem
-            // 
-            this.opendbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.open;
-            this.opendbfToolStripMenuItem.Name = "opendbfToolStripMenuItem";
-            this.opendbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
-            this.opendbfToolStripMenuItem.Text = "Открыть [dbf]";
-            this.opendbfToolStripMenuItem.Click += new System.EventHandler(this.открытьdbfToolStripMenuItem_Click);
-            // 
-            // saveTodbfToolStripMenuItem
-            // 
-            this.saveTodbfToolStripMenuItem.Enabled = false;
-            this.saveTodbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveDBF;
-            this.saveTodbfToolStripMenuItem.Name = "saveTodbfToolStripMenuItem";
-            this.saveTodbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
-            this.saveTodbfToolStripMenuItem.Text = "Сохранить в [dbf]";
-            this.saveTodbfToolStripMenuItem.Click += new System.EventHandler(this.saveTodbfToolStripMenuItem_Click);
-            // 
-            // saveTodbfcsvToolStripMenuItem
-            // 
-            this.saveTodbfcsvToolStripMenuItem.Enabled = false;
-            this.saveTodbfcsvToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveCSV;
-            this.saveTodbfcsvToolStripMenuItem.Name = "saveTodbfcsvToolStripMenuItem";
-            this.saveTodbfcsvToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
-            this.saveTodbfcsvToolStripMenuItem.Text = "Сохранить в [dbf + csv]";
-            this.saveTodbfcsvToolStripMenuItem.Click += new System.EventHandler(this.saveTodbfcsvToolStripMenuItem_Click);
-            // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
@@ -218,20 +192,6 @@ namespace DBF_Editor
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(239, 6);
-            // 
-            // настройкиToolStripMenuItem
-            // 
-            this.настройкиToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.settings;
-            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
-            // 
-            // оПрограммеToolStripMenuItem
-            // 
-            this.оПрограммеToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.about;
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // RightToolStripPanel
             // 
@@ -294,7 +254,6 @@ namespace DBF_Editor
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(604, 506);
             this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
             // infoPanel1
             // 
@@ -313,7 +272,6 @@ namespace DBF_Editor
             this.infoPanel1.Name = "infoPanel1";
             this.infoPanel1.Size = new System.Drawing.Size(604, 107);
             this.infoPanel1.TabIndex = 1;
-            this.infoPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.infoPanel1_Paint);
             // 
             // selectedSumAndRowsLabel1
             // 
@@ -417,58 +375,6 @@ namespace DBF_Editor
             this.toolStrip1.Size = new System.Drawing.Size(604, 79);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // moveButton1
-            // 
-            this.moveButton1.AutoSize = false;
-            this.moveButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.moveButton1.Enabled = false;
-            this.moveButton1.Image = global::DBF_Editor.Properties.Resources.moveToRight;
-            this.moveButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.moveButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.moveButton1.Name = "moveButton1";
-            this.moveButton1.Size = new System.Drawing.Size(72, 76);
-            this.moveButton1.Text = "toolStripButton1";
-            this.moveButton1.ToolTipText = "Переместить";
-            // 
-            // editButton1
-            // 
-            this.editButton1.AutoSize = false;
-            this.editButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.editButton1.Enabled = false;
-            this.editButton1.Image = global::DBF_Editor.Properties.Resources.edit;
-            this.editButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editButton1.Name = "editButton1";
-            this.editButton1.Size = new System.Drawing.Size(72, 76);
-            this.editButton1.Text = "toolStripButton1";
-            this.editButton1.ToolTipText = "Редактировать";
-            // 
-            // cloneButton1
-            // 
-            this.cloneButton1.AutoSize = false;
-            this.cloneButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cloneButton1.Enabled = false;
-            this.cloneButton1.Image = global::DBF_Editor.Properties.Resources.clone;
-            this.cloneButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.cloneButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cloneButton1.Name = "cloneButton1";
-            this.cloneButton1.Size = new System.Drawing.Size(72, 76);
-            this.cloneButton1.Text = "toolStripButton1";
-            this.cloneButton1.ToolTipText = "Клонировать";
-            // 
-            // deleteButton1
-            // 
-            this.deleteButton1.AutoSize = false;
-            this.deleteButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteButton1.Enabled = false;
-            this.deleteButton1.Image = global::DBF_Editor.Properties.Resources.delete;
-            this.deleteButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.deleteButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteButton1.Name = "deleteButton1";
-            this.deleteButton1.Size = new System.Drawing.Size(72, 76);
-            this.deleteButton1.Text = "toolStripButton1";
-            this.deleteButton1.ToolTipText = "Удалить";
             // 
             // dataGridView2
             // 
@@ -597,6 +503,58 @@ namespace DBF_Editor
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
+            // moveButton1
+            // 
+            this.moveButton1.AutoSize = false;
+            this.moveButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.moveButton1.Enabled = false;
+            this.moveButton1.Image = global::DBF_Editor.Properties.Resources.moveToRight;
+            this.moveButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.moveButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.moveButton1.Name = "moveButton1";
+            this.moveButton1.Size = new System.Drawing.Size(72, 76);
+            this.moveButton1.Text = "toolStripButton1";
+            this.moveButton1.ToolTipText = "Переместить";
+            // 
+            // editButton1
+            // 
+            this.editButton1.AutoSize = false;
+            this.editButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editButton1.Enabled = false;
+            this.editButton1.Image = global::DBF_Editor.Properties.Resources.edit;
+            this.editButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editButton1.Name = "editButton1";
+            this.editButton1.Size = new System.Drawing.Size(72, 76);
+            this.editButton1.Text = "toolStripButton1";
+            this.editButton1.ToolTipText = "Редактировать";
+            // 
+            // cloneButton1
+            // 
+            this.cloneButton1.AutoSize = false;
+            this.cloneButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cloneButton1.Enabled = false;
+            this.cloneButton1.Image = global::DBF_Editor.Properties.Resources.clone;
+            this.cloneButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cloneButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cloneButton1.Name = "cloneButton1";
+            this.cloneButton1.Size = new System.Drawing.Size(72, 76);
+            this.cloneButton1.Text = "toolStripButton1";
+            this.cloneButton1.ToolTipText = "Клонировать";
+            // 
+            // deleteButton1
+            // 
+            this.deleteButton1.AutoSize = false;
+            this.deleteButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteButton1.Enabled = false;
+            this.deleteButton1.Image = global::DBF_Editor.Properties.Resources.delete;
+            this.deleteButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteButton1.Name = "deleteButton1";
+            this.deleteButton1.Size = new System.Drawing.Size(72, 76);
+            this.deleteButton1.Text = "toolStripButton1";
+            this.deleteButton1.ToolTipText = "Удалить";
+            // 
             // moveButton2
             // 
             this.moveButton2.AutoSize = false;
@@ -648,6 +606,47 @@ namespace DBF_Editor
             this.deleteButton2.Size = new System.Drawing.Size(72, 76);
             this.deleteButton2.Text = "toolStripButton1";
             this.deleteButton2.ToolTipText = "Удалить";
+            // 
+            // opendbfToolStripMenuItem
+            // 
+            this.opendbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.open;
+            this.opendbfToolStripMenuItem.Name = "opendbfToolStripMenuItem";
+            this.opendbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
+            this.opendbfToolStripMenuItem.Text = "Открыть [dbf]";
+            this.opendbfToolStripMenuItem.Click += new System.EventHandler(this.открытьdbfToolStripMenuItem_Click);
+            // 
+            // saveTodbfToolStripMenuItem
+            // 
+            this.saveTodbfToolStripMenuItem.Enabled = false;
+            this.saveTodbfToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveDBF;
+            this.saveTodbfToolStripMenuItem.Name = "saveTodbfToolStripMenuItem";
+            this.saveTodbfToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
+            this.saveTodbfToolStripMenuItem.Text = "Сохранить в [dbf]";
+            this.saveTodbfToolStripMenuItem.Click += new System.EventHandler(this.saveTodbfToolStripMenuItem_Click);
+            // 
+            // saveTodbfcsvToolStripMenuItem
+            // 
+            this.saveTodbfcsvToolStripMenuItem.Enabled = false;
+            this.saveTodbfcsvToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.saveCSV;
+            this.saveTodbfcsvToolStripMenuItem.Name = "saveTodbfcsvToolStripMenuItem";
+            this.saveTodbfcsvToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
+            this.saveTodbfcsvToolStripMenuItem.Text = "Сохранить в [dbf + csv]";
+            this.saveTodbfcsvToolStripMenuItem.Click += new System.EventHandler(this.saveTodbfcsvToolStripMenuItem_Click);
+            // 
+            // настройкиToolStripMenuItem
+            // 
+            this.настройкиToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.settings;
+            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
+            this.настройкиToolStripMenuItem.Text = "Настройки";
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Image = global::DBF_Editor.Properties.Resources.about;
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
+            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // MainForm
             // 

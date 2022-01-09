@@ -133,7 +133,6 @@ namespace DBF_Editor
             TableChanged?.Invoke();
         }
 
-
         public bool ImportNewRow(DataGridViewSelectedRowCollection dataRowCollection)
         {
             try
@@ -149,23 +148,14 @@ namespace DBF_Editor
             }
             catch (Exception)
             {
-                MessageBox.Show("Ошибка переноса");
+                MessageBox.Show("Ошибка переноса строк");
                 return false;
             }
-            
         }
 
         private void MoveRows(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection _selectedRows = _dataGridView.SelectedRows;
-
-            //DataRowCollection _dataRowCollection = _dataTable.Rows;
-            //_dataRowCollection.Clear();
-
-            //foreach (DataGridViewRow row in _selectedRows)
-            //{
-            //    _dataRowCollection.Add(_dataTable.Rows[row.Index]);
-            //}
 
             if (_otherTable.ImportNewRow(_selectedRows))
             {
@@ -197,8 +187,6 @@ namespace DBF_Editor
                 return;
 
             DataRow _originalRow = _dataTable.Rows[_dataGridView.SelectedRows[0].Index];
-            //_dataTable.ImportRow(_originalRow);
-            //DataRow _cloneRow = _dataTable.Rows[_dataTable.Rows.Count-1];
 
             DataRow _cloneRow = _dataTable.NewRow();
             _dataTable.Rows.Add(_cloneRow);
@@ -208,11 +196,10 @@ namespace DBF_Editor
 
             if (_cloneForm.DialogResult == DialogResult.OK)
             {
-                //*** settings
+                //*** settings "перенести сразу"
             }
             else
             {
-                //MessageBox.Show("NOT OK");
                 _dataTable.Rows.Remove(_cloneRow);
             }
 
@@ -251,7 +238,6 @@ namespace DBF_Editor
             _selectedRows = 0;
             decimal _step = 0;
 
-
             _dataGridView.SelectionChanged -= SelectRow;
             if (Settings.Default.SolidSelection && _dataGridView.SelectedRows.Count == 1)
             {
@@ -264,7 +250,6 @@ namespace DBF_Editor
             _dataGridView.SelectionChanged += SelectRow;
 
             DataGridViewSelectedRowCollection _rowCollection = _dataGridView.SelectedRows;
-
 
             foreach (DataGridViewRow row in _rowCollection)
             {
@@ -282,7 +267,7 @@ namespace DBF_Editor
                         break;
                     }
                 }
-                catch (DeletedRowInaccessibleException delRow)
+                catch (DeletedRowInaccessibleException)
                 {
                     _selectedSum = 0;
                     _selectedRows = 0;

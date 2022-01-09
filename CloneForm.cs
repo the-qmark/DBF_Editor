@@ -78,14 +78,12 @@ namespace DBF_Editor
                 cloneSumTextBox.BackColor = Color.White;
                 decimal _delta = _originalSum - _cloneSum;
                 originalSumTextBox.Text = _delta.ToString();
-                //toolTip1.RemoveAll();
             }
             else
             {
                 saveButton.Enabled = false;
                 saveButton.BackColor = Color.Gray;
                 cloneSumTextBox.BackColor = Color.IndianRed;
-                //toolTip1.SetToolTip(cloneSumTextBox, "");
             }
         }
 

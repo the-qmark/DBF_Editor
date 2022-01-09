@@ -141,7 +141,6 @@ namespace DBF_Editor
             else
                 Directory.CreateDirectory(_pathToSave);
 
-
             SaveForm _saveForm = new SaveForm(_table1, _pathToSave, isCSV);
             _saveForm.ShowDialog();
 
@@ -156,17 +155,12 @@ namespace DBF_Editor
                     Process.Start("explorer.exe", _pathToSave);
                 }
             }
-
         }
 
-        private void infoPanel1_Paint(object sender, PaintEventArgs e)
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-
+            About _aboutform = new About();
+            _aboutform.ShowDialog();
         }
 
         private void solidSelectionToolStripMenuItem_Click(object sender, EventArgs e)

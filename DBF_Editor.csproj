@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="ButtonsPanel.cs" />
     <Compile Include="CloneForm.cs">
       <SubType>Form</SubType>
@@ -95,6 +101,9 @@
       <DependentUpon>SaveForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Table.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CloneForm.resx">
       <DependentUpon>CloneForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,7 +155,6 @@
     <None Include="Resources\moveToRight.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icon.ico" />
     <Content Include="iconDBF.ico" />
     <None Include="Resources\open.png" />
     <None Include="Resources\saveCSV.png" />
@@ -154,7 +162,6 @@
     <None Include="Resources\settings.png" />
     <None Include="Resources\about.png" />
     <None Include="Resources\right-arrow.png" />
-    <Content Include="Без-названия.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

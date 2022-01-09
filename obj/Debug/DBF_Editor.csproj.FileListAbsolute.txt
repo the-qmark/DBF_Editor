@@ -20,4 +20,4 @@ E:\YandexDisk\СОБЕС\DBF_Editor\bin\Debug\DBF Editor.exe
 E:\YandexDisk\СОБЕС\DBF_Editor\bin\Debug\DBF Editor.pdb
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF Editor.exe
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF Editor.pdb
-E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.csproj.AssemblyReference.cache
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Debug\DBF_Editor.About.resources

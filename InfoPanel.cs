@@ -38,13 +38,15 @@ namespace DBF_Editor
 
         private void OnTableChanged()
         {
-            _totalSumLabel.Text = _table.TotalSum.ToString();
+            string _totalSum = string.Format("{0:n}", _table.TotalSum);
+            _totalSumLabel.Text = _totalSum;
             _totalRowsLabel.Text = _table.RowsCount.ToString();
         }
 
         private void OnSelectedChanged()
         {
-            _selectedLabel.Text = $"{_table.SeletedSum} ({_table.SelectedRows})";
+            string _selectedSum = string.Format("{0:n}", _table.SeletedSum);
+            _selectedLabel.Text = $"{_selectedSum} ({_table.SelectedRows})";
         }
     }
 }

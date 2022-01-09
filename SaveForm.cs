@@ -41,19 +41,14 @@ namespace DBF_Editor
                 ));
 
             backgroundThread.Start();
-            //MessageBox.Show("TEST");
         }
 
         private bool Save(Table table, string filePath)
         {
-            //string currentRow = "";
-            //var _stringBuilder = new StringBuilder();
             try
             {
                 DataTable _dataTable = table.DataTable;
                 string _fileName = table.Name;
-
-                //ArrayList _list = new ArrayList();
 
                 string _createTableSql = "create table [" + _fileName + "] (";
 
@@ -61,7 +56,6 @@ namespace DBF_Editor
                 {
                     string _columnName = dc.ColumnName;
                     _createTableSql = _createTableSql + "[" + _columnName + "]" + " varchar(40),";
-                    //_list.Add(_columnName);
                 }
 
                 _createTableSql = _createTableSql.Substring(0, _createTableSql.Length - 1) + ")";
@@ -72,7 +66,6 @@ namespace DBF_Editor
                 {
                     OleDbCommand cmd = new OleDbCommand();
                     cmd.Connection = con;
-                    //cmd.CommandText = _createTableSql;
 
                     con.Open();
                     cmd.CommandText = _createTableSql;
@@ -91,13 +84,12 @@ namespace DBF_Editor
                             }
                         ));
 
-
                     int _rowsDone = 0;
                     int _rowsCount = table.RowsCount;
                     foreach (DataRow row in _tempTable.Rows)
                     {
                         string insertSql = "insert into " + _fileName + " values(";
-                        //currentRow = row.Field<string>(0);
+
                         for (int i = 0; i < _tempTable.Columns.Count; i++)
                             insertSql = insertSql + "'" + ReplaceEscape(row[i].ToString()) + "',";
 
@@ -105,7 +97,7 @@ namespace DBF_Editor
                         cmd.CommandText = insertSql;
                         cmd.ExecuteNonQuery();
                         _rowsDone++;
-                        //statusStrip1.Text = $"Обработано {id} строк из {temp.Rows.Count}...";
+
                         if (progressBar1.InvokeRequired)
                             progressBar1.BeginInvoke(
                             new Action(() =>
@@ -119,9 +111,7 @@ namespace DBF_Editor
                                 label1.Text = $"Обработано {_rowsDone} строк из {_rowsCount}...";
                             }
                         ));
-                        //SetStatus($"Обработано {id} строк для {table.Name}.dbf...");
                     }
-
 
                     con.Close();
                 }
@@ -140,18 +130,16 @@ namespace DBF_Editor
                     }
                 }
 
-                //saveProgressForm.Close();
                 if (this.InvokeRequired)
                     this.BeginInvoke(new Action(() =>
                     {
-                        //table.SaveResult = true;
                         Close();
                     }
                 ));
 
                 return true;
             }
-            catch (ThreadAbortException eff)
+            catch (ThreadAbortException)
             {
                 table.SaveResult = false;
                 if (Directory.Exists(_path))
@@ -174,11 +162,6 @@ namespace DBF_Editor
             return str;
         }
 
-        private void SetStatus(string status)
-        {
-            label1.Text = status;
-        }
-
         private void SaveProgressForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             while (backgroundThread.IsAlive)
@@ -187,23 +170,6 @@ namespace DBF_Editor
                     Directory.Delete(_path);
                 backgroundThread.Abort();
             }
-        }
-
-        private void SaveProgressForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-
-        }
-
-        private void abortSaveButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Вы действительно хотите прервать операцию сохранения?", "Прервать операцию сохранения", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                Close();
-        }
-
-        private void SaveForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

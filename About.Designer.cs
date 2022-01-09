@@ -1,9 +1,7 @@
 ﻿
-using System;
-
 namespace DBF_Editor
 {
-    partial class SaveForm
+    partial class About
     {
         /// <summary>
         /// Required designer variable.
@@ -31,52 +29,40 @@ namespace DBF_Editor
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaveForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 23);
+            this.label1.Size = new System.Drawing.Size(485, 125);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Идет обработка...";
+            this.label1.Text = "Программа для редактирования и деления DBF файлов полученных их Соцрегистра\r\n\r\nCS" +
+    "ZN Edition 2022";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(16, 35);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(433, 36);
-            this.progressBar1.TabIndex = 1;
-            // 
-            // SaveForm
+            // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 96);
-            this.Controls.Add(this.progressBar1);
+            this.ClientSize = new System.Drawing.Size(497, 138);
             this.Controls.Add(this.label1);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "SaveForm";
+            this.Name = "About";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Сохранение";
-            this.Shown += new System.EventHandler(this.SaveForm_Shown);
+            this.Text = "О программе";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
