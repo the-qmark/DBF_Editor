@@ -204,6 +204,15 @@ namespace DBF_Editor
             }
 
             AcceptChanges();
+
+            if (Settings.Default.MoveNow)
+            {
+                object _sender = null;
+                EventArgs _eventArgs = new EventArgs();
+
+                _dataGridView.Rows[_dataTable.Rows.Count - 1].Selected = true;
+                MoveRows(_sender, _eventArgs);
+            }    
         }
 
         private void DeleteRow(object sender, EventArgs e)

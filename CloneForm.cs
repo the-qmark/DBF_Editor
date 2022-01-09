@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBF_Editor.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,6 +49,8 @@ namespace DBF_Editor
             cloneNameTextBox.Text = _originalRow[3].ToString();
             cloneOtchTextBox.Text = _originalRow[4].ToString();
             cloneSumTextBox.Text = "0.00";
+
+            moveNowCheckBox.Checked = Settings.Default.MoveNow;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -119,6 +122,12 @@ namespace DBF_Editor
                 return false;
 
             return true;
+        }
+
+        private void moveNowCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.MoveNow = moveNowCheckBox.Checked;
+            Settings.Default.Save();
         }
     }
 }

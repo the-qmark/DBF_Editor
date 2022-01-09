@@ -1,11 +1,18 @@
-E:\YandexDisk\СОБЕС\DBF_Editor\bin\Release\DBF_Editor.exe.config
-E:\YandexDisk\СОБЕС\DBF_Editor\bin\Release\DBF_Editor.exe
-E:\YandexDisk\СОБЕС\DBF_Editor\bin\Release\DBF_Editor.pdb
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.csproj.AssemblyReference.cache
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.EditForm.resources
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.MainForm.resources
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.Properties.Resources.resources
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.csproj.GenerateResource.cache
 E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.csproj.CoreCompileInputs.cache
-E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.exe
-E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.pdb
+E:\YandexDisk\СОБЕС\DBF_Editor\bin\Release\DBF Editor.exe.config
+E:\YandexDisk\СОБЕС\DBF_Editor\bin\Release\DBF Editor.exe
+E:\YandexDisk\СОБЕС\DBF_Editor\bin\Release\DBF Editor.pdb
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.About.resources
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.CloneForm.resources
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF_Editor.SaveForm.resources
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF Editor.exe
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF Editor.pdb
+E:\YandexDisk\СОБЕС\DBF_Editor\bin\Release\DBF Editor.exe.manifest
+E:\YandexDisk\СОБЕС\DBF_Editor\bin\Release\DBF Editor.application
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF Editor.exe.manifest
+E:\YandexDisk\СОБЕС\DBF_Editor\obj\Release\DBF Editor.application

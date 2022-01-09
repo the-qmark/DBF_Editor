@@ -34,5 +34,17 @@ namespace DBF_Editor.Properties {
                 this["SolidSelection"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MoveNow {
+            get {
+                return ((bool)(this["MoveNow"]));
+            }
+            set {
+                this["MoveNow"] = value;
+            }
+        }
     }
 }

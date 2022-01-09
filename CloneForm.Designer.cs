@@ -45,7 +45,7 @@ namespace DBF_Editor
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.moveNowCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -212,24 +212,25 @@ namespace DBF_Editor
             // 
             this.toolTip1.ToolTipTitle = "Примечание";
             // 
-            // checkBox1
+            // moveNowCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(297, 229);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(180, 27);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "Сразу переместить";
-            this.toolTip1.SetToolTip(this.checkBox1, "Сразу переместить новую строку в другую таблицу");
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.moveNowCheckBox.AutoSize = true;
+            this.moveNowCheckBox.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.moveNowCheckBox.Location = new System.Drawing.Point(297, 229);
+            this.moveNowCheckBox.Name = "moveNowCheckBox";
+            this.moveNowCheckBox.Size = new System.Drawing.Size(180, 27);
+            this.moveNowCheckBox.TabIndex = 12;
+            this.moveNowCheckBox.Text = "Сразу переместить";
+            this.toolTip1.SetToolTip(this.moveNowCheckBox, "Сразу переместить новую строку в другую таблицу");
+            this.moveNowCheckBox.UseVisualStyleBackColor = true;
+            this.moveNowCheckBox.CheckedChanged += new System.EventHandler(this.moveNowCheckBox_CheckedChanged);
             // 
             // CloneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 351);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.moveNowCheckBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label2);
@@ -274,6 +275,6 @@ namespace DBF_Editor
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox moveNowCheckBox;
     }
 }
