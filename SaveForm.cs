@@ -166,8 +166,6 @@ namespace DBF_Editor
                     Directory.Delete(_path, true);
                 return false;
             }
-
-            //table.SaveResult = false;
         }
 
         public static string ReplaceEscape(string str)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBF_Editor.Properties;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -78,6 +79,8 @@ namespace DBF_Editor
         public void UpdateName(string newName)
         {
             _name = newName;
+            if (_name == "")
+                _name = "NoNameDBF";
         }
 
         public void GetDataFrom(DataTable tempTable)
@@ -248,7 +251,20 @@ namespace DBF_Editor
             _selectedRows = 0;
             decimal _step = 0;
 
+
+            _dataGridView.SelectionChanged -= SelectRow;
+            if (Settings.Default.SolidSelection && _dataGridView.SelectedRows.Count == 1)
+            {
+                int _index = _dataGridView.SelectedRows[0].Index;
+                for (int i = 0; i < _index; i++)
+                {
+                    _dataGridView.Rows[i].Selected = true;
+                }
+            }
+            _dataGridView.SelectionChanged += SelectRow;
+
             DataGridViewSelectedRowCollection _rowCollection = _dataGridView.SelectedRows;
+
 
             foreach (DataGridViewRow row in _rowCollection)
             {

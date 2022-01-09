@@ -38,6 +38,8 @@ namespace DBF_Editor
             Thread.CurrentThread.CurrentCulture = myCulture;
             #endregion
 
+            solidSelectionToolStripMenuItem.Checked = Settings.Default.SolidSelection;
+
             _buttonsPanel1 = new ButtonsPanel(moveButton1, editButton1, cloneButton1, deleteButton1);
             _table1 = new Table(_buttonsPanel1, dataGridView1);
             _infoPanel1 = new InfoPanel(nameTextBox1, totalSumLabel1, totalRowsLabel1, selectedSumAndRowsLabel1, _table1);
@@ -75,7 +77,7 @@ namespace DBF_Editor
             string _shortName = _fileName.Length > 3 ? _fileName.Substring(_fileName.Length - 3) : _fileName;
 
             _infoPanel1.NameTextBox.Text = _shortName; // ** settings
-            _infoPanel2.NameTextBox.Text = _shortName + "_copy"; // ** settings
+            _infoPanel2.NameTextBox.Text = _shortName + "new"; // ** settings
 
             saveTodbfToolStripMenuItem.Enabled = true;
             saveTodbfcsvToolStripMenuItem.Enabled = true;
@@ -124,6 +126,8 @@ namespace DBF_Editor
 
         private void SaveDbf(bool isCSV)
         {
+            if (_table1.Name == _table2.Name)
+                nameTextBox2.Text = _table2.Name + "new";
 
             saveFileDialog.FileName = $"DBF_Editor_{_table1.Name}_{_table2.Name}";
 
@@ -165,9 +169,10 @@ namespace DBF_Editor
 
         }
 
-        private void сплошноеВыделениеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void solidSelectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Settings.Default.SolidSelection = solidSelectionToolStripMenuItem.Checked;
+            Settings.Default.Save();
         }
     }
 }

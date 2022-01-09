@@ -43,6 +43,8 @@ namespace DBF_Editor
             this.saveTodbfcsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.solidSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -65,12 +67,7 @@ namespace DBF_Editor
             this.editButton1 = new System.Windows.Forms.ToolStripButton();
             this.cloneButton1 = new System.Windows.Forms.ToolStripButton();
             this.deleteButton1 = new System.Windows.Forms.ToolStripButton();
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.moveButton2 = new System.Windows.Forms.ToolStripButton();
-            this.editButton2 = new System.Windows.Forms.ToolStripButton();
-            this.cloneButton2 = new System.Windows.Forms.ToolStripButton();
-            this.deleteButton2 = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.infoPanel2 = new System.Windows.Forms.Panel();
             this.selectedSumAndRowsLabel2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -80,9 +77,12 @@ namespace DBF_Editor
             this.label10 = new System.Windows.Forms.Label();
             this.nameTextBox2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.сплошноеВыделениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.moveButton2 = new System.Windows.Forms.ToolStripButton();
+            this.editButton2 = new System.Windows.Forms.ToolStripButton();
+            this.cloneButton2 = new System.Windows.Forms.ToolStripButton();
+            this.deleteButton2 = new System.Windows.Forms.ToolStripButton();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.statusStrip.SuspendLayout();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
@@ -93,9 +93,9 @@ namespace DBF_Editor
             this.infoPanel1.SuspendLayout();
             this.buttonsPanel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            this.infoPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.infoPanel2.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -197,13 +197,27 @@ namespace DBF_Editor
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сплошноеВыделениеToolStripMenuItem,
+            this.solidSelectionToolStripMenuItem,
             this.toolStripSeparator1,
             this.настройкиToolStripMenuItem,
             this.оПрограммеToolStripMenuItem});
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(70, 23);
             this.сервисToolStripMenuItem.Text = "Сервис";
+            // 
+            // solidSelectionToolStripMenuItem
+            // 
+            this.solidSelectionToolStripMenuItem.CheckOnClick = true;
+            this.solidSelectionToolStripMenuItem.Name = "solidSelectionToolStripMenuItem";
+            this.solidSelectionToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
+            this.solidSelectionToolStripMenuItem.Text = "\"Сплошное\" выделение";
+            this.solidSelectionToolStripMenuItem.ToolTipText = "Автоматически будут выделяться все строки выше выбранной";
+            this.solidSelectionToolStripMenuItem.Click += new System.EventHandler(this.solidSelectionToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(239, 6);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -456,70 +470,23 @@ namespace DBF_Editor
             this.deleteButton1.Text = "toolStripButton1";
             this.deleteButton1.ToolTipText = "Удалить";
             // 
-            // toolStrip2
+            // dataGridView2
             // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.moveButton2,
-            this.editButton2,
-            this.cloneButton2,
-            this.deleteButton2});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(620, 79);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // moveButton2
-            // 
-            this.moveButton2.AutoSize = false;
-            this.moveButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.moveButton2.Enabled = false;
-            this.moveButton2.Image = global::DBF_Editor.Properties.Resources.moveToLeft;
-            this.moveButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.moveButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.moveButton2.Name = "moveButton2";
-            this.moveButton2.Size = new System.Drawing.Size(72, 76);
-            this.moveButton2.Text = "toolStripButton1";
-            this.moveButton2.ToolTipText = "Переместить";
-            // 
-            // editButton2
-            // 
-            this.editButton2.AutoSize = false;
-            this.editButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.editButton2.Enabled = false;
-            this.editButton2.Image = global::DBF_Editor.Properties.Resources.edit;
-            this.editButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.editButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.editButton2.Name = "editButton2";
-            this.editButton2.Size = new System.Drawing.Size(72, 76);
-            this.editButton2.Text = "toolStripButton1";
-            this.editButton2.ToolTipText = "Редактировать";
-            // 
-            // cloneButton2
-            // 
-            this.cloneButton2.AutoSize = false;
-            this.cloneButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cloneButton2.Enabled = false;
-            this.cloneButton2.Image = global::DBF_Editor.Properties.Resources.clone;
-            this.cloneButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.cloneButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cloneButton2.Name = "cloneButton2";
-            this.cloneButton2.Size = new System.Drawing.Size(72, 76);
-            this.cloneButton2.Text = "toolStripButton1";
-            this.cloneButton2.ToolTipText = "Клонировать";
-            // 
-            // deleteButton2
-            // 
-            this.deleteButton2.AutoSize = false;
-            this.deleteButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteButton2.Enabled = false;
-            this.deleteButton2.Image = global::DBF_Editor.Properties.Resources.delete;
-            this.deleteButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.deleteButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteButton2.Name = "deleteButton2";
-            this.deleteButton2.Size = new System.Drawing.Size(72, 76);
-            this.deleteButton2.Text = "toolStripButton1";
-            this.deleteButton2.ToolTipText = "Удалить";
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 186);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(620, 506);
+            this.dataGridView2.TabIndex = 3;
             // 
             // infoPanel2
             // 
@@ -617,37 +584,70 @@ namespace DBF_Editor
             this.label11.TabIndex = 0;
             this.label11.Text = "Название:";
             // 
-            // сплошноеВыделениеToolStripMenuItem
+            // toolStrip2
             // 
-            this.сплошноеВыделениеToolStripMenuItem.CheckOnClick = true;
-            this.сплошноеВыделениеToolStripMenuItem.Name = "сплошноеВыделениеToolStripMenuItem";
-            this.сплошноеВыделениеToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
-            this.сплошноеВыделениеToolStripMenuItem.Text = "\"Сплошное\" выделение";
-            this.сплошноеВыделениеToolStripMenuItem.ToolTipText = "Автоматически будут выделяться все строки выше выбранной";
-            this.сплошноеВыделениеToolStripMenuItem.Click += new System.EventHandler(this.сплошноеВыделениеToolStripMenuItem_Click);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.moveButton2,
+            this.editButton2,
+            this.cloneButton2,
+            this.deleteButton2});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(620, 79);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolStripSeparator1
+            // moveButton2
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(239, 6);
+            this.moveButton2.AutoSize = false;
+            this.moveButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.moveButton2.Enabled = false;
+            this.moveButton2.Image = global::DBF_Editor.Properties.Resources.moveToLeft;
+            this.moveButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.moveButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.moveButton2.Name = "moveButton2";
+            this.moveButton2.Size = new System.Drawing.Size(72, 76);
+            this.moveButton2.Text = "toolStripButton1";
+            this.moveButton2.ToolTipText = "Переместить";
             // 
-            // dataGridView2
+            // editButton2
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 186);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(620, 506);
-            this.dataGridView2.TabIndex = 3;
+            this.editButton2.AutoSize = false;
+            this.editButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editButton2.Enabled = false;
+            this.editButton2.Image = global::DBF_Editor.Properties.Resources.edit;
+            this.editButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.editButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editButton2.Name = "editButton2";
+            this.editButton2.Size = new System.Drawing.Size(72, 76);
+            this.editButton2.Text = "toolStripButton1";
+            this.editButton2.ToolTipText = "Редактировать";
+            // 
+            // cloneButton2
+            // 
+            this.cloneButton2.AutoSize = false;
+            this.cloneButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.cloneButton2.Enabled = false;
+            this.cloneButton2.Image = global::DBF_Editor.Properties.Resources.clone;
+            this.cloneButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cloneButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.cloneButton2.Name = "cloneButton2";
+            this.cloneButton2.Size = new System.Drawing.Size(72, 76);
+            this.cloneButton2.Text = "toolStripButton1";
+            this.cloneButton2.ToolTipText = "Клонировать";
+            // 
+            // deleteButton2
+            // 
+            this.deleteButton2.AutoSize = false;
+            this.deleteButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteButton2.Enabled = false;
+            this.deleteButton2.Image = global::DBF_Editor.Properties.Resources.delete;
+            this.deleteButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteButton2.Name = "deleteButton2";
+            this.deleteButton2.Size = new System.Drawing.Size(72, 76);
+            this.deleteButton2.Text = "toolStripButton1";
+            this.deleteButton2.ToolTipText = "Удалить";
             // 
             // MainForm
             // 
@@ -680,11 +680,11 @@ namespace DBF_Editor
             this.buttonsPanel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.infoPanel2.ResumeLayout(false);
             this.infoPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -741,7 +741,7 @@ namespace DBF_Editor
         private System.Windows.Forms.ToolStripButton editButton2;
         private System.Windows.Forms.ToolStripButton cloneButton2;
         private System.Windows.Forms.ToolStripButton deleteButton2;
-        private System.Windows.Forms.ToolStripMenuItem сплошноеВыделениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem solidSelectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.DataGridView dataGridView2;
     }
